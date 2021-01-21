@@ -36,7 +36,7 @@ def kbase64(input_data,isencode):
         return outdata
 
 #密钥,加密的数据,编码还是解码,是否显示为16进制
-def newBase64(bkey,input,isencode,ishex):
+def newBase64(bkey,input,isencode):
     if type(input) is str:
         buff = input.encode("utf-8")
     elif type(input) is bytes:
@@ -55,11 +55,6 @@ def newBase64(bkey,input,isencode,ishex):
                     outdata+="%02x"%mych+" "
                 return outdata
             return ""
-    if ishex:
-        outdata = ""
-        for mych in res:
-            outdata += "%02x" % mych + " "
-        return outdata
     return res
 
 
