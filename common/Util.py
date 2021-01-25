@@ -1,5 +1,6 @@
 import base64
-import re,struct
+import re,struct,os,zlib
+import subprocess
 
 
 def StrToHexSplit(input):
@@ -8,7 +9,6 @@ def StrToHexSplit(input):
     for code in lines:
         if len (code) <= 0:
             continue
-
         num = int(code,16)
         bnum = struct.pack('B',num)
         buf += bnum
@@ -150,5 +150,150 @@ def curtomBase64(bkey,input_bytes):
         output += '='
     return output
 
+#获取脚本的路径
+def getScriptPath(scriptname,platform):
+    mainpath = str(__file__)
+    pathsplit = mainpath.split("common")
+    rootpath = pathsplit[0]
+    if platform == "Windows":
+        script_path = r"\script\bat\%s.bat" % scriptname
+    else:
+        script_path = r"\script\shell\%s.sh" % scriptname
+    filepath = rootpath + script_path
+    return filepath
+
+#执行脚本
+def execScript(scriptname,platform):
+    filepath=getScriptPath(scriptname,platform)
+    os.system("start " + filepath)
+
+#替换脚本中的%Pid再执行脚本
+def execScriptPid(scriptname,platform,pid):
+    filepath=getScriptPath(scriptname,platform)
+    with open(filepath,"r") as myfile:
+        scriptdata=myfile.read()
+        scriptdata=scriptdata.replace("#pid",pid)
+        tmppath=os.path.splitext(filepath)[0]
+        tmpext=os.path.splitext(filepath)[1]
+        tmppath+="_tmp"+tmpext
+        with open(tmppath,"w+") as tmpfile:
+            tmpfile.write(scriptdata)
+    os.system("start " + tmppath)
+
+def str2hex(mystr):
+    nstr = eval("'{}'".format(mystr))
+    mybuff = bytes(0)
+    for tc in nstr:
+        mybuff += bytes([ord(tc)])
+    return mybuff
+
+def hex2str(buff):
+    outdata=""
+    for tc in buff:
+        outdata += chr(tc)
+    return outdata
+
+def b2hex(bins):
+    return ''.join(["%02X" % x for x in bins]).strip().lower()
+
+def b2hexSpace(bins):
+    return ' '.join(["%02X" % x for x in bins]).strip().lower()
+
+#hexdump去掉左右两边的数据
+def HexdumpReplaceLeftRight(bindataStr):
+    binart = bindataStr.split('\n')
+    outStr=""
+    for binart_split in binart:
+        if binart_split == '':
+            continue
+        idx= binart_split.index(" ")
+        binart_split=binart_split[idx:]
+        binart_split=binart_split.strip()
+        list_split = binart_split.split('  ', 2)[0]
+        outStr+=list_split+"\n"
+    return outStr
+
+#整理16进制字符串
+def ByteToHexStr(mystr):
+    decodeData = ""
+    sublist=mystr.split(' ')
+    if len(sublist)>1:
+        for idx,buf in enumerate(sublist):
+            decodeData+=buf+" "
+            if (idx + 1) % 16 == 0:
+                decodeData += "\n"
+        return decodeData
+    for idx, buf in enumerate(mystr):
+        decodeData += buf
+        if (idx + 1) % 2 == 0:
+            decodeData += " "
+        if (idx + 1) % 32 == 0:
+            decodeData += "\n"
+    return decodeData
+
+def hexSplit(buff,cmbidx):
+    outdata=""
+    for line in buff.split("\n"):
+        for bdata in line.split(" "):
+            if len(bdata)<=0:
+                continue
+            if cmbidx==1:
+                outdata+=bdata+","
+            elif cmbidx==2:
+                outdata+="0x"+bdata+","
+        outdata+="\n"
+    return outdata
+
+def zlib_compress(zlib_data,ishex):
+    if ishex:
+        data = StrToHexSplit(zlib_data)
+    else:
+        data = zlib_data.encode("utf-8")
+    outData = zlib.compress(data)
+    return b2hexSpace(outData)
 
 
+def zlib_decompress(zlib_data):
+    data = StrToHexSplit(zlib_data)
+    outData = zlib.decompress(data)
+    return b2hexSpace(outData)
+
+def varint_encode(number):
+    buf = b''
+    while True:
+        towrite = number & 0x7f
+        number >>= 7
+        if number:
+            buf += struct.pack("B",(towrite | 0x80))
+        else:
+            buf +=  struct.pack("B",towrite)
+            break
+    return buf
+
+def varint_decode(buff):
+    """Read a varint from `stream`"""
+    shift = 0
+    result = 0
+    idx=0
+    while True:
+        if idx>len(buff):
+            return ""
+        i = buff[idx]
+        idx+=1
+        result |= (i & 0x7f) << shift
+        shift += 7
+        if not (i & 0x80):
+            break
+    return result
+
+def execProcess(processName,processArg,data):
+    process = subprocess.Popen([processName, processArg],stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output = error = None
+    try:
+        output, error = process.communicate(data)
+    except OSError:
+        pass
+    finally:
+        if process.poll() != 0:
+            process.wait()
+    return output

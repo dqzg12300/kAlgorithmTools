@@ -40,8 +40,734 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>常用工具</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tabWidget_4">
+          <property name="toolTip">
+           <string>zlib编解码</string>
+          </property>
+          <property name="currentIndex">
+           <number>5</number>
+          </property>
+          <widget class="QWidget" name="tab_16">
+           <attribute name="title">
+            <string>str2hex</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_15">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_10">
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_18">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtbinformat_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_11">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_19">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtbinformat_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_20">
+               <item row="0" column="1">
+                <widget class="QLabel" name="lbbinformat_cnt">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QRadioButton" name="rdohex2str">
+                 <property name="text">
+                  <string>hex2str</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_7">
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>长度：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QPushButton" name="btnbinformat">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>字符串转16进制和16进制转字符串</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QRadioButton" name="rdostr2hex">
+                 <property name="text">
+                  <string>str2hex</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_7">
+           <attribute name="title">
+            <string>hexdump</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_16">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_12">
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_21">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txthexdump_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_13">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_22">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txthexdump_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_3">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QPushButton" name="btnhexdump_calc">
+               <property name="geometry">
+                <rect>
+                 <x>502</x>
+                 <y>10</y>
+                 <width>120</width>
+                 <height>50</height>
+                </rect>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>匹配hexdump中间的字节部分出来</string>
+               </property>
+               <property name="text">
+                <string>计算</string>
+               </property>
+              </widget>
+              <widget class="QWidget" name="">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>20</y>
+                 <width>351</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <widget class="QLabel" name="label_6">
+                  <property name="maximumSize">
+                   <size>
+                    <width>100</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>输出类型：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="cmbhexdump">
+                  <item>
+                   <property name="text">
+                    <string>空格分割</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>逗号分割</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>字节列表</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_8">
+           <attribute name="title">
+            <string>asm</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_36">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_23">
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_35">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtasm_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_22">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_34">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtasm_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_8">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QPushButton" name="btnzlib_calc_5">
+               <property name="geometry">
+                <rect>
+                 <x>502</x>
+                 <y>10</y>
+                 <width>120</width>
+                 <height>50</height>
+                </rect>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>汇编转二进制和二进制转汇编</string>
+               </property>
+               <property name="text">
+                <string>计算</string>
+               </property>
+              </widget>
+              <widget class="QWidget" name="layoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>20</y>
+                 <width>351</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QLabel" name="label_8">
+                  <property name="maximumSize">
+                   <size>
+                    <width>100</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string>汇编平台：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="cmbasm">
+                  <item>
+                   <property name="text">
+                    <string>arm</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>arm64</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_18">
+           <attribute name="title">
+            <string>zlib</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_17">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_15">
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_24">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtzlib_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_14">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_23">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtzlib_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_4">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_37">
+               <item row="0" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <widget class="QRadioButton" name="rdozlib">
+                   <property name="text">
+                    <string>zlib</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="rdounzlib">
+                   <property name="text">
+                    <string>unzlib</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="chkzlib_ishex">
+                   <property name="text">
+                    <string>输入为16进制</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnzlib_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>zlib压缩和解压</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_21">
+           <attribute name="title">
+            <string>oct</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_30">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_19">
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_29">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtoct_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_18">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_28">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtoct_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_6">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QPushButton" name="btnoct_calc">
+               <property name="geometry">
+                <rect>
+                 <x>502</x>
+                 <y>10</y>
+                 <width>120</width>
+                 <height>50</height>
+                </rect>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>8进制字符串转中文</string>
+               </property>
+               <property name="text">
+                <string>计算</string>
+               </property>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_22">
+           <attribute name="title">
+            <string>protobuf</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_33">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_21">
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_32">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtprotoc_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_20">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_31">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtprotoc_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_7">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QPushButton" name="btnprotoc_calc">
+               <property name="geometry">
+                <rect>
+                 <x>502</x>
+                 <y>10</y>
+                 <width>120</width>
+                 <height>50</height>
+                </rect>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>匹配hexdump中间的字节部分出来</string>
+               </property>
+               <property name="text">
+                <string>计算</string>
+               </property>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>算法相关</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tabWidget_3">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tab_9">
+           <attribute name="title">
+            <string>crc32</string>
+           </attribute>
+          </widget>
+          <widget class="QWidget" name="tab_10">
+           <attribute name="title">
+            <string>adler32</string>
+           </attribute>
+          </widget>
+          <widget class="QWidget" name="tab_11">
+           <attribute name="title">
+            <string>aes</string>
+           </attribute>
+          </widget>
+          <widget class="QWidget" name="tab_12">
+           <attribute name="title">
+            <string>md5</string>
+           </attribute>
+          </widget>
+          <widget class="QWidget" name="tab_13">
+           <attribute name="title">
+            <string>sha</string>
+           </attribute>
+          </widget>
+          <widget class="QWidget" name="tab_14">
+           <attribute name="title">
+            <string>sm4</string>
+           </attribute>
+          </widget>
+          <widget class="QWidget" name="tab_15">
+           <attribute name="title">
+            <string>rsa</string>
+           </attribute>
+          </widget>
+          <widget class="QWidget" name="tab_20">
+           <attribute name="title">
+            <string>hmac</string>
+           </attribute>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
         <string>编码处理</string>
@@ -50,7 +776,7 @@
         <item row="0" column="0">
          <widget class="QTabWidget" name="tabWidget_2">
           <property name="currentIndex">
-           <number>1</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab_5">
            <attribute name="title">
@@ -60,7 +786,14 @@
             <item row="8" column="2">
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QCheckBox" name="chkIsHex">
+               <widget class="QCheckBox" name="chkHexInput">
+                <property name="text">
+                 <string>16进制输入</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="chkHexOutput">
                 <property name="text">
                  <string>16进制显示</string>
                 </property>
@@ -198,7 +931,7 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>50</height>
+                <height>80</height>
                </size>
               </property>
               <property name="frameShape">
@@ -227,10 +960,16 @@
                </item>
                <item>
                 <widget class="QPushButton" name="pushButton_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
                  <property name="maximumSize">
                   <size>
-                   <width>100</width>
-                   <height>16777215</height>
+                   <width>120</width>
+                   <height>50</height>
                   </size>
                  </property>
                  <property name="text">
@@ -243,69 +982,90 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_7">
+          <widget class="QWidget" name="tab_17">
            <attribute name="title">
-            <string>hexdump</string>
+            <string>varint</string>
            </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_8">
-           <attribute name="title">
-            <string>javascript</string>
-           </attribute>
-          </widget>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tab">
-       <attribute name="title">
-        <string>算法相关</string>
-       </attribute>
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0">
-         <widget class="QTabWidget" name="tabWidget_3">
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <widget class="QWidget" name="tab_9">
-           <attribute name="title">
-            <string>crc32</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_10">
-           <attribute name="title">
-            <string>adler32</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_11">
-           <attribute name="title">
-            <string>aes</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_12">
-           <attribute name="title">
-            <string>md5</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_13">
-           <attribute name="title">
-            <string>sha</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_14">
-           <attribute name="title">
-            <string>sm4</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_15">
-           <attribute name="title">
-            <string>rsa</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_20">
-           <attribute name="title">
-            <string>hmac</string>
-           </attribute>
+           <layout class="QGridLayout" name="gridLayout_40">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_24">
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_38">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtvarint_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_25">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_39">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtvarint_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_9">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QPushButton" name="btnvarint_calc">
+               <property name="geometry">
+                <rect>
+                 <x>502</x>
+                 <y>10</y>
+                 <width>120</width>
+                 <height>50</height>
+                </rect>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>120</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>protobuf的varint转换</string>
+               </property>
+               <property name="text">
+                <string>计算</string>
+               </property>
+              </widget>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -321,9 +1081,34 @@
           <property name="title">
            <string>调试</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="1" column="0">
-            <widget class="QPushButton" name="btngdb32">
+          <layout class="QGridLayout" name="gridLayout_14">
+           <item row="0" column="0" rowspan="2">
+            <widget class="QGroupBox" name="groupBox_7">
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>进程信息(gdb用到)</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="txtPid"/>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>进程id：</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="btnida32">
              <property name="minimumSize">
               <size>
                <width>50</width>
@@ -337,11 +1122,11 @@
               </size>
              </property>
              <property name="text">
-              <string>gdb32</string>
+              <string>ida32</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
+           <item row="0" column="2">
             <widget class="QPushButton" name="btnida64">
              <property name="minimumSize">
               <size>
@@ -361,6 +1146,25 @@
             </widget>
            </item>
            <item row="1" column="1">
+            <widget class="QPushButton" name="btngdb32">
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>160</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>gdb32</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
             <widget class="QPushButton" name="btngdb64">
              <property name="minimumSize">
               <size>
@@ -376,25 +1180,6 @@
              </property>
              <property name="text">
               <string>gdb64</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="btnida32">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>60</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>160</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>ida32</string>
              </property>
             </widget>
            </item>
@@ -423,6 +1208,19 @@
              </property>
              <property name="text">
               <string>adb环境安装</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="btnkill_debug">
+             <property name="maximumSize">
+              <size>
+               <width>160</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>一键杀调试进程</string>
              </property>
             </widget>
            </item>
@@ -487,50 +1285,6 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
-       <attribute name="title">
-        <string>常用工具</string>
-       </attribute>
-       <layout class="QGridLayout" name="gridLayout_6">
-        <item row="0" column="0">
-         <widget class="QTabWidget" name="tabWidget_4">
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <widget class="QWidget" name="tab_16">
-           <attribute name="title">
-            <string>binformat</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_17">
-           <attribute name="title">
-            <string>array</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_18">
-           <attribute name="title">
-            <string>zlib</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_19">
-           <attribute name="title">
-            <string>varint</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_21">
-           <attribute name="title">
-            <string>oct</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_22">
-           <attribute name="title">
-            <string>protobuf</string>
-           </attribute>
-          </widget>
-         </widget>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
    </layout>
@@ -580,6 +1334,166 @@
  <resources/>
  <connections>
   <connection>
+   <sender>btnfrida32_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>reinstall_android()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>304</x>
+     <y>205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1034</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnfrida32</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start_frida32()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>229</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1033</x>
+     <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnfrida64</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start_frida64()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1030</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnida32</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start_ida32()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>486</x>
+     <y>565</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1033</x>
+     <y>482</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnida64</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start_ida64()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>670</x>
+     <y>565</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1029</x>
+     <y>544</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btngdb32</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start_gdb32()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>486</x>
+     <y>637</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1036</x>
+     <y>585</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btngdb64</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start_gdb64()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>519</x>
+     <y>603</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1033</x>
+     <y>632</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnkill_debug</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>kill_debug()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>518</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1031</x>
+     <y>135</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtbase64_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>base64_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>232</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>962</x>
+     <y>596</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnSelect</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>select_file()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>585</x>
+     <y>163</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>959</x>
+     <y>388</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>btnbase64_calc</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -596,46 +1510,14 @@
    </hints>
   </connection>
   <connection>
-   <sender>txtbase64_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>base64_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>336</x>
-     <y>235</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>962</x>
-     <y>596</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnSelect</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>select_file()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>562</x>
-     <y>155</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>959</x>
-     <y>388</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>save_file()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>651</x>
-     <y>157</y>
+     <x>685</x>
+     <y>163</y>
     </hint>
     <hint type="destinationlabel">
      <x>884</x>
@@ -644,14 +1526,14 @@
    </hints>
   </connection>
   <connection>
-   <sender>chkIsHex</sender>
+   <sender>chkHexOutput</sender>
    <signal>toggled(bool)</signal>
    <receiver>MainWindow</receiver>
    <slot>hex_toggled()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>155</x>
-     <y>616</y>
+     <x>332</x>
+     <y>629</y>
     </hint>
     <hint type="destinationlabel">
      <x>246</x>
@@ -666,8 +1548,8 @@
    <slot>url_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>524</x>
-     <y>248</y>
+     <x>161</x>
+     <y>224</y>
     </hint>
     <hint type="destinationlabel">
      <x>1031</x>
@@ -682,8 +1564,8 @@
    <slot>url_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>651</x>
-     <y>611</y>
+     <x>674</x>
+     <y>623</y>
     </hint>
     <hint type="destinationlabel">
      <x>1030</x>
@@ -692,18 +1574,210 @@
    </hints>
   </connection>
   <connection>
-   <sender>btnfrida32_2</sender>
-   <signal>clicked()</signal>
+   <sender>txtbinformat_input</sender>
+   <signal>textChanged()</signal>
    <receiver>MainWindow</receiver>
-   <slot>reinstall_android()</slot>
+   <slot>binformat_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>411</x>
-     <y>185</y>
+     <x>562</x>
+     <y>226</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1031</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnbinformat</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>binformat_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>600</x>
+     <y>586</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1032</x>
+     <y>516</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnhexdump_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hexdump_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>591</x>
+     <y>605</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1030</x>
+     <y>512</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txthexdump_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hexdump_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>567</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1030</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cmbhexdump</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hexdump_cmb_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>604</y>
     </hint>
     <hint type="destinationlabel">
      <x>1034</x>
-     <y>162</y>
+     <y>658</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnzlib_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>zlib_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>600</x>
+     <y>597</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>555</x>
+     <y>672</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtzlib_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>zlib_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>506</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>674</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnvarint_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>varint_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>592</x>
+     <y>590</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1016</x>
+     <y>676</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtvarint_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>varint_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>270</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>671</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnoct_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>oct_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>568</x>
+     <y>600</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>192</x>
+     <y>675</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtoct_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>oct_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>388</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>247</x>
+     <y>669</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnprotoc_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>protoc_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>585</x>
+     <y>586</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1031</x>
+     <y>28</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtprotoc_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>protoc_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>499</x>
+     <y>243</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1032</x>
+     <y>64</y>
     </hint>
    </hints>
   </connection>
@@ -717,5 +1791,25 @@
   <slot>url_input_change()</slot>
   <slot>url_calc()</slot>
   <slot>reinstall_android()</slot>
+  <slot>start_frida32()</slot>
+  <slot>start_frida64()</slot>
+  <slot>start_ida32()</slot>
+  <slot>start_ida64()</slot>
+  <slot>start_gdb32()</slot>
+  <slot>start_gdb64()</slot>
+  <slot>kill_debug()</slot>
+  <slot>binformat_calc()</slot>
+  <slot>binformat_input_change()</slot>
+  <slot>hexdump_calc()</slot>
+  <slot>hexdump_input_change()</slot>
+  <slot>hexdump_cmb_change()</slot>
+  <slot>zlib_calc()</slot>
+  <slot>zlib_input_change()</slot>
+  <slot>varint_calc()</slot>
+  <slot>varint_input_change()</slot>
+  <slot>oct_calc()</slot>
+  <slot>oct_input_change()</slot>
+  <slot>protoc_calc()</slot>
+  <slot>protoc_input_change()</slot>
  </slots>
 </ui>
