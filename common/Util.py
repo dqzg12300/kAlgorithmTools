@@ -152,33 +152,46 @@ def curtomBase64(bkey,input_bytes):
 
 #获取脚本的路径
 def getScriptPath(scriptname,platform):
+    rootpath=getProjectPath()
+    if platform == "Windows":
+        script_path = r"\script\win\%s.win" % scriptname
+    elif platform=="Darwin":
+        script_path = "/script/mac/%s.sh" % scriptname
+    else:
+        script_path = "/script/linux/%s.sh" % scriptname
+    filepath = rootpath + script_path
+    return filepath
+
+def getProjectPath():
     mainpath = str(__file__)
     pathsplit = mainpath.split("common")
     rootpath = pathsplit[0]
-    if platform == "Windows":
-        script_path = r"\script\bat\%s.bat" % scriptname
-    else:
-        script_path = r"\script\shell\%s.sh" % scriptname
-    filepath = rootpath + script_path
-    return filepath
+    return rootpath
 
 #执行脚本
 def execScript(scriptname,platform):
     filepath=getScriptPath(scriptname,platform)
-    os.system("start " + filepath)
+    if platform == "Windows":
+        os.system("start " + filepath)
+    else:
+        os.system("bash -c " + filepath)
 
-#替换脚本中的%Pid再执行脚本
-def execScriptPid(scriptname,platform,pid):
+#替换脚本中的占位符#标记的再执行脚本
+def execScriptReplace(scriptname,platform,key,value):
     filepath=getScriptPath(scriptname,platform)
     with open(filepath,"r") as myfile:
         scriptdata=myfile.read()
-        scriptdata=scriptdata.replace("#pid",pid)
+        scriptdata=scriptdata.replace(key,value)
         tmppath=os.path.splitext(filepath)[0]
         tmpext=os.path.splitext(filepath)[1]
         tmppath+="_tmp"+tmpext
         with open(tmppath,"w+") as tmpfile:
             tmpfile.write(scriptdata)
-    os.system("start " + tmppath)
+    if platform == "Windows":
+        os.system("start " + tmppath)
+    else:
+        os.system("chmod +x " + tmppath)
+        os.system("bash -c " + tmppath)
 
 def str2hex(mystr):
     nstr = eval("'{}'".format(mystr))

@@ -17,8 +17,10 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.setWindowOpacity(0.93)
         self.platform=platform.system()
         if self.iswin()==False:
-            os.system("chmod +x ../script/shell/*")
+            os.system("chmod +x ../script/linux/*")
+            os.system("chmod +x ../script/mac/*")
             os.system("chmod +x ../exec/linux/protoc")
+
 
     def iswin(self):
         return self.platform=="Windows"
@@ -108,7 +110,11 @@ class kmainForm(QMainWindow,Ui_MainWindow):
 
     #安装环境
     def reinstall_android(self):
-        Util.execScript("reinstall_android",self.platform)
+        if self.iswin():
+            Util.execScript("reinstall_android",self.platform)
+        else:
+            rootpath=Util.getProjectPath()
+            Util.execScriptReplace("reinstall_android",self.platform,"#path",rootpath)
 
     #启动frida脚本
     def start_frida32(self):
@@ -131,14 +137,14 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         if len(self.txtPid.text())<=0:
             self.appendLog("未填写pid无法启动gdb。")
             return
-        Util.execScriptPid("gdb32", self.platform,self.txtPid.text())
+        Util.execScriptReplace("gdb32", self.platform,"#pid",self.txtPid.text())
 
     # 启动gdb64 server脚本
     def start_gdb64(self):
         if len(self.txtPid.text())<=0:
             self.appendLog("未填写pid无法启动gdb。")
             return
-        Util.execScriptPid("gdb64", self.platform,self.txtPid.text())
+        Util.execScriptReplace("gdb64", self.platform,"#pid",self.txtPid.text())
     #关掉调试的进程
     def kill_debug(self):
         Util.execScript("kill_debug", self.platform)
