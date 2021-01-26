@@ -53,7 +53,7 @@
            <string>zlib编解码</string>
           </property>
           <property name="currentIndex">
-           <number>5</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_16">
            <attribute name="title">
@@ -226,83 +226,77 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QPushButton" name="btnhexdump_calc">
-               <property name="geometry">
-                <rect>
-                 <x>502</x>
-                 <y>10</y>
-                 <width>120</width>
-                 <height>50</height>
-                </rect>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>120</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>匹配hexdump中间的字节部分出来</string>
-               </property>
-               <property name="text">
-                <string>计算</string>
-               </property>
-              </widget>
-              <widget class="QWidget" name="">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>20</y>
-                 <width>351</width>
-                 <height>31</height>
-                </rect>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
-                <item>
-                 <widget class="QLabel" name="label_6">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>输出类型：</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="cmbhexdump">
-                  <item>
-                   <property name="text">
-                    <string>空格分割</string>
+              <layout class="QGridLayout" name="gridLayout_41">
+               <item row="0" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <widget class="QLabel" name="label_6">
+                   <property name="maximumSize">
+                    <size>
+                     <width>100</width>
+                     <height>16777215</height>
+                    </size>
                    </property>
-                  </item>
-                  <item>
                    <property name="text">
-                    <string>逗号分割</string>
+                    <string>输出类型：</string>
                    </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>字节列表</string>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="cmbhexdump">
+                   <property name="maximumSize">
+                    <size>
+                     <width>300</width>
+                     <height>16777215</height>
+                    </size>
                    </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+                   <item>
+                    <property name="text">
+                     <string>空格分割</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>逗号分割</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>字节列表</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnhexdump_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>匹配hexdump中间的字节部分出来</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -360,73 +354,67 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QPushButton" name="btnzlib_calc_5">
-               <property name="geometry">
-                <rect>
-                 <x>502</x>
-                 <y>10</y>
-                 <width>120</width>
-                 <height>50</height>
-                </rect>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>120</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>汇编转二进制和二进制转汇编</string>
-               </property>
-               <property name="text">
-                <string>计算</string>
-               </property>
-              </widget>
-              <widget class="QWidget" name="layoutWidget">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>20</y>
-                 <width>351</width>
-                 <height>31</height>
-                </rect>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
-                <item>
-                 <widget class="QLabel" name="label_8">
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>汇编平台：</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="cmbasm">
-                  <item>
-                   <property name="text">
-                    <string>arm</string>
+              <layout class="QGridLayout" name="gridLayout_27">
+               <item row="0" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QLabel" name="label_8">
+                   <property name="maximumSize">
+                    <size>
+                     <width>100</width>
+                     <height>16777215</height>
+                    </size>
                    </property>
-                  </item>
-                  <item>
                    <property name="text">
-                    <string>arm64</string>
+                    <string>汇编平台：</string>
                    </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="cmbasm">
+                   <property name="maximumSize">
+                    <size>
+                     <width>300</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>arm</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>arm64</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnzlib_calc_5">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>汇编转二进制和二进制转汇编</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -593,34 +581,30 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QPushButton" name="btnoct_calc">
-               <property name="geometry">
-                <rect>
-                 <x>502</x>
-                 <y>10</y>
-                 <width>120</width>
-                 <height>50</height>
-                </rect>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>120</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>8进制字符串转中文</string>
-               </property>
-               <property name="text">
-                <string>计算</string>
-               </property>
-              </widget>
+              <layout class="QGridLayout" name="gridLayout_26">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="btnoct_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>8进制字符串转中文</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -678,34 +662,30 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QPushButton" name="btnprotoc_calc">
-               <property name="geometry">
-                <rect>
-                 <x>502</x>
-                 <y>10</y>
-                 <width>120</width>
-                 <height>50</height>
-                </rect>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>120</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>匹配hexdump中间的字节部分出来</string>
-               </property>
-               <property name="text">
-                <string>计算</string>
-               </property>
-              </widget>
+              <layout class="QGridLayout" name="gridLayout_25">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="btnprotoc_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>匹配hexdump中间的字节部分出来</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>

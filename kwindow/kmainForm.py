@@ -16,12 +16,17 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.setupUi(self)
         self.setWindowOpacity(0.93)
         self.platform=platform.system()
+        if self.iswin()==False:
+            os.system("chmod +x ../script/shell/*")
+            os.system("chmod +x ../exec/linux/protoc")
+
+    def iswin(self):
+        return self.platform=="Windows"
 
     #base64的计算按钮事件
     def base64_calc(self):
         base64_input = self.txtbase64_input.toPlainText()
         res=Util.newBase64(self.txtbase64_key.text(),base64_input,self.rdobase64_encode.isChecked())
-        # res=Util.kbase64(base64_input,self.rdobase64_encode.isChecked())
         self.txtbase64_output.setPlainText(res)
         if self.chkIsHex.isChecked():
             self.hex_toggled()
@@ -30,7 +35,6 @@ class kmainForm(QMainWindow,Ui_MainWindow):
     def base64_input_change(self):
         base64_input = self.txtbase64_input.toPlainText()
         res = Util.newBase64(self.txtbase64_key.text(),base64_input, self.rdobase64_encode.isChecked())
-        # res = Util.kbase64(base64_input, self.rdobase64_encode.isChecked())
         self.txtbase64_output.setPlainText(res)
         if self.chkIsHex.isChecked():
             self.hex_toggled()
@@ -245,11 +249,11 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             elif " " not in inputdata:
                 data = Util.ByteToHexStr(inputdata)
             data=Util.StrToHexSplit(data)
-            if self.platform=="Windows":
+            if self.iswin():
                 res=Util.execProcess("../exec/win/protoc.exe","--decode_raw",data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
             else:
-                res = Util.execProcess("../exec/linux/protoc", "--decode_raw", data)
+                res = Util.execProcess("..\exec\linux\protoc", "--decode_raw", data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
         except:
             self.txtprotoc_output.setPlainText("")
