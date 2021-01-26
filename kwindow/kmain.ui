@@ -15,32 +15,10 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
-     <widget class="QGroupBox" name="groupBox">
-      <property name="maximumSize">
-       <size>
-        <width>300</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="title">
-       <string>日志</string>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="1">
-        <widget class="QPlainTextEdit" name="txtLog">
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -53,7 +31,7 @@
            <string>zlib编解码</string>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_16">
            <attribute name="title">
@@ -62,12 +40,25 @@
            <layout class="QGridLayout" name="gridLayout_15">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_10">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="title">
                <string>input</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_18">
                <item row="0" column="0">
-                <widget class="QPlainTextEdit" name="txtbinformat_input"/>
+                <widget class="QPlainTextEdit" name="txtbinformat_input">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
@@ -180,12 +171,25 @@
            <layout class="QGridLayout" name="gridLayout_16">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_12">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="title">
                <string>input</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_21">
                <item row="0" column="0">
-                <widget class="QPlainTextEdit" name="txthexdump_input"/>
+                <widget class="QPlainTextEdit" name="txthexdump_input">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
@@ -308,12 +312,25 @@
            <layout class="QGridLayout" name="gridLayout_36">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_23">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="title">
                <string>input</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_35">
                <item row="0" column="0">
-                <widget class="QPlainTextEdit" name="txtasm_input"/>
+                <widget class="QPlainTextEdit" name="txtasm_input">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
@@ -390,6 +407,23 @@
                    </item>
                   </widget>
                  </item>
+                 <item>
+                  <widget class="QRadioButton" name="rdodisasm">
+                   <property name="text">
+                    <string>disasm</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="rdoasm">
+                   <property name="text">
+                    <string>asm</string>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
                </item>
                <item row="0" column="1">
@@ -426,6 +460,12 @@
            <layout class="QGridLayout" name="gridLayout_17">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_15">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="title">
                <string>input</string>
               </property>
@@ -535,6 +575,12 @@
            <layout class="QGridLayout" name="gridLayout_30">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_19">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="title">
                <string>input</string>
               </property>
@@ -616,12 +662,25 @@
            <layout class="QGridLayout" name="gridLayout_33">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_21">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="title">
                <string>input</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_32">
                <item row="0" column="0">
-                <widget class="QPlainTextEdit" name="txtprotoc_input"/>
+                <widget class="QPlainTextEdit" name="txtprotoc_input">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
@@ -702,46 +761,990 @@
         <item row="0" column="0">
          <widget class="QTabWidget" name="tabWidget_3">
           <property name="currentIndex">
-           <number>0</number>
+           <number>5</number>
           </property>
           <widget class="QWidget" name="tab_9">
            <attribute name="title">
             <string>crc32</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_46">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_26">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_43">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtcrc32_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_27">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_44">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtcrc32_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_10">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_45">
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="chkcrc32_ishex">
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>输入为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btncrc32_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>8进制字符串转中文</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_10">
            <attribute name="title">
             <string>adler32</string>
            </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_11">
-           <attribute name="title">
-            <string>aes</string>
-           </attribute>
+           <layout class="QGridLayout" name="gridLayout_50">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_28">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_47">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtadler32_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_29">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_48">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtadler32_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_11">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_49">
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnadler32_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>8进制字符串转中文</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="chkadler32_ishex">
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>输入为16进制</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_12">
            <attribute name="title">
             <string>md5</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_54">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_30">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_51">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtmd5_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_31">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_52">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtmd5_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_12">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_53">
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnmd5_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>8进制字符串转中文</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="chkmd5_ishex">
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>输入为16进制</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_13">
            <attribute name="title">
             <string>sha</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_64">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_34">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_61">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtsha_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_35">
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_63">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtsha_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_14">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_62">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_13">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>mode：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="cmbsha">
+                 <item>
+                  <property name="text">
+                   <string>sha256</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>sha1</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>sha224</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>sha512</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QCheckBox" name="chksha_ishex">
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>输入为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QPushButton" name="btnsha_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>8进制字符串转中文</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_20">
+           <attribute name="title">
+            <string>hmac</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_68">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_37">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_67">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txthmac_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_36">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>220</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_65">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txthmac_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_15">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_66">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_14">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>mode：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" colspan="2">
+                <widget class="QComboBox" name="cmbhmac">
+                 <property name="maximumSize">
+                  <size>
+                   <width>300</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>md5</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>sha1</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>sha224</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>sha256</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>sha512</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="0" column="3" rowspan="2">
+                <widget class="QPushButton" name="btnhmac_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>8进制字符串转中文</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_15">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>key：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" colspan="2">
+                <widget class="QLineEdit" name="txthmac_key">
+                 <property name="maximumSize">
+                  <size>
+                   <width>300</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="chkhmac_key_ishex">
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>key为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QCheckBox" name="chkhmac_ishex">
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>输入为16进制</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_11">
+           <attribute name="title">
+            <string>aes</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_58">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_33">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_57">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtaes_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_32">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>180</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_56">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtaes_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_13">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>220</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_55">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_9">
+                 <property name="text">
+                  <string>key：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" colspan="2">
+                <widget class="QLineEdit" name="txtaes_key"/>
+               </item>
+               <item row="0" column="3">
+                <widget class="QCheckBox" name="chkaes_key_ishex">
+                 <property name="text">
+                  <string>key为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_10">
+                 <property name="text">
+                  <string>iv：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" colspan="2">
+                <widget class="QLineEdit" name="txtaes_iv"/>
+               </item>
+               <item row="1" column="3">
+                <widget class="QCheckBox" name="chkaes_iv_ishex">
+                 <property name="text">
+                  <string>iv为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_12">
+                 <property name="text">
+                  <string>gcmTag：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1" rowspan="2" colspan="2">
+                <widget class="QLineEdit" name="txtaes_tag">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QCheckBox" name="chkaes_tag_ishex">
+                 <property name="text">
+                  <string>tag为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="3" rowspan="2">
+                <widget class="QCheckBox" name="chkaes_ishex">
+                 <property name="text">
+                  <string>输入为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0" rowspan="2">
+                <widget class="QLabel" name="label_11">
+                 <property name="text">
+                  <string>mode：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1" rowspan="2">
+                <widget class="QComboBox" name="cmbaes_mode">
+                 <item>
+                  <property name="text">
+                   <string>CBC</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>ECB</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>GCM</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="5" column="3" rowspan="2">
+                <widget class="QPushButton" name="btnadler32_calc_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>8进制字符串转中文</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QRadioButton" name="rdoaes_encrypt">
+                 <property name="text">
+                  <string>encrypt</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="2">
+                <widget class="QRadioButton" name="rdoaes_decrypt">
+                 <property name="text">
+                  <string>decrypt</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_14">
            <attribute name="title">
-            <string>sm4</string>
+            <string>rc2</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_72">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_39">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_71">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtrc2_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_38">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>220</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_69">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtrc2_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_16">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>180</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_70">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_16">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>key：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1" colspan="3">
+                <widget class="QLineEdit" name="txtrc2_key"/>
+               </item>
+               <item row="0" column="4" rowspan="2">
+                <widget class="QPushButton" name="btnrc2_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>8进制字符串转中文</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_17">
+                 <property name="maximumSize">
+                  <size>
+                   <width>80</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>iv：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" colspan="3">
+                <widget class="QLineEdit" name="txtrc2_iv"/>
+               </item>
+               <item row="2" column="1">
+                <widget class="QRadioButton" name="rdorc2_encrypt">
+                 <property name="text">
+                  <string>encrypt</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QRadioButton" name="rdorc2_decrypt">
+                 <property name="text">
+                  <string>decrypt</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QCheckBox" name="chkrc2_ishex">
+                 <property name="text">
+                  <string>输入为16进制</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_15">
            <attribute name="title">
             <string>rsa</string>
            </attribute>
           </widget>
-          <widget class="QWidget" name="tab_20">
+          <widget class="QWidget" name="tab_19">
            <attribute name="title">
-            <string>hmac</string>
+            <string>ecdh</string>
            </attribute>
           </widget>
          </widget>
@@ -756,7 +1759,7 @@
         <item row="0" column="0">
          <widget class="QTabWidget" name="tabWidget_2">
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_5">
            <attribute name="title">
@@ -880,6 +1883,12 @@
            <layout class="QGridLayout" name="gridLayout_11">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_5">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="title">
                <string>input</string>
               </property>
@@ -969,6 +1978,12 @@
            <layout class="QGridLayout" name="gridLayout_40">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_24">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="title">
                <string>input</string>
               </property>
@@ -1015,34 +2030,30 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QPushButton" name="btnvarint_calc">
-               <property name="geometry">
-                <rect>
-                 <x>502</x>
-                 <y>10</y>
-                 <width>120</width>
-                 <height>50</height>
-                </rect>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>120</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>protobuf的varint转换</string>
-               </property>
-               <property name="text">
-                <string>计算</string>
-               </property>
-              </widget>
+              <layout class="QGridLayout" name="gridLayout_42">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="btnvarint_calc">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>protobuf的varint转换</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -1267,6 +2278,28 @@
       </widget>
      </widget>
     </item>
+    <item row="0" column="1">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>日志</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="1">
+        <widget class="QPlainTextEdit" name="txtLog">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -1320,7 +2353,7 @@
    <slot>reinstall_android()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>304</x>
+     <x>257</x>
      <y>205</y>
     </hint>
     <hint type="destinationlabel">
@@ -1336,8 +2369,8 @@
    <slot>start_frida32()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>229</x>
-     <y>373</y>
+     <x>257</x>
+     <y>403</y>
     </hint>
     <hint type="destinationlabel">
      <x>1033</x>
@@ -1352,8 +2385,8 @@
    <slot>start_frida64()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>520</x>
-     <y>373</y>
+     <x>533</x>
+     <y>403</y>
     </hint>
     <hint type="destinationlabel">
      <x>1030</x>
@@ -1368,7 +2401,7 @@
    <slot>start_ida32()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>486</x>
+     <x>439</x>
      <y>565</y>
     </hint>
     <hint type="destinationlabel">
@@ -1384,7 +2417,7 @@
    <slot>start_ida64()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>670</x>
+     <x>623</x>
      <y>565</y>
     </hint>
     <hint type="destinationlabel">
@@ -1400,7 +2433,7 @@
    <slot>start_gdb32()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>486</x>
+     <x>439</x>
      <y>637</y>
     </hint>
     <hint type="destinationlabel">
@@ -1416,8 +2449,8 @@
    <slot>start_gdb64()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>519</x>
-     <y>603</y>
+     <x>623</x>
+     <y>637</y>
     </hint>
     <hint type="destinationlabel">
      <x>1033</x>
@@ -1432,8 +2465,8 @@
    <slot>kill_debug()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>518</x>
-     <y>162</y>
+     <x>533</x>
+     <y>200</y>
     </hint>
     <hint type="destinationlabel">
      <x>1031</x>
@@ -1448,8 +2481,8 @@
    <slot>base64_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>160</x>
-     <y>232</y>
+     <x>162</x>
+     <y>256</y>
     </hint>
     <hint type="destinationlabel">
      <x>962</x>
@@ -1512,7 +2545,7 @@
    <slot>hex_toggled()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>332</x>
+     <x>337</x>
      <y>629</y>
     </hint>
     <hint type="destinationlabel">
@@ -1528,8 +2561,8 @@
    <slot>url_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>161</x>
-     <y>224</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>1031</x>
@@ -1544,7 +2577,7 @@
    <slot>url_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>674</x>
+     <x>669</x>
      <y>623</y>
     </hint>
     <hint type="destinationlabel">
@@ -1592,8 +2625,8 @@
    <slot>hexdump_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>591</x>
-     <y>605</y>
+     <x>669</x>
+     <y>627</y>
     </hint>
     <hint type="destinationlabel">
      <x>1030</x>
@@ -1608,8 +2641,8 @@
    <slot>hexdump_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>567</x>
-     <y>221</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>1030</x>
@@ -1624,8 +2657,8 @@
    <slot>hexdump_cmb_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>341</x>
-     <y>604</y>
+     <x>331</x>
+     <y>610</y>
     </hint>
     <hint type="destinationlabel">
      <x>1034</x>
@@ -1640,8 +2673,8 @@
    <slot>zlib_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>600</x>
-     <y>597</y>
+     <x>669</x>
+     <y>627</y>
     </hint>
     <hint type="destinationlabel">
      <x>555</x>
@@ -1656,8 +2689,8 @@
    <slot>zlib_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>506</x>
-     <y>252</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>699</x>
@@ -1672,8 +2705,8 @@
    <slot>varint_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>592</x>
-     <y>590</y>
+     <x>421</x>
+     <y>627</y>
     </hint>
     <hint type="destinationlabel">
      <x>1016</x>
@@ -1688,8 +2721,8 @@
    <slot>varint_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>319</x>
-     <y>270</y>
+     <x>346</x>
+     <y>264</y>
     </hint>
     <hint type="destinationlabel">
      <x>435</x>
@@ -1704,8 +2737,8 @@
    <slot>oct_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>568</x>
-     <y>600</y>
+     <x>416</x>
+     <y>627</y>
     </hint>
     <hint type="destinationlabel">
      <x>192</x>
@@ -1720,8 +2753,8 @@
    <slot>oct_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>388</x>
-     <y>239</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>247</x>
@@ -1736,8 +2769,8 @@
    <slot>protoc_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>585</x>
-     <y>586</y>
+     <x>416</x>
+     <y>627</y>
     </hint>
     <hint type="destinationlabel">
      <x>1031</x>
@@ -1752,12 +2785,268 @@
    <slot>protoc_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>243</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>1032</x>
      <y>64</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnzlib_calc_5</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>asm_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>606</x>
+     <y>592</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1028</x>
+     <y>55</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtasm_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>asm_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>548</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1029</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btncrc32_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>crc32_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>482</x>
+     <y>598</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1027</x>
+     <y>89</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtcrc32_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>crc32_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>536</x>
+     <y>208</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1030</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnadler32_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>adler32_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>510</x>
+     <y>599</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1028</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtadler32_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>adler32_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>185</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1026</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnmd5_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>md5_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>491</x>
+     <y>599</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1035</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtmd5_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>md5_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>541</x>
+     <y>207</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1033</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnsha_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>sha_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>594</x>
+     <y>597</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>-7</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtsha_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>sha_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>502</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>575</x>
+     <y>-13</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnadler32_calc_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aes_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>597</x>
+     <y>527</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>573</x>
+     <y>-19</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtaes_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aes_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>548</x>
+     <y>164</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>442</x>
+     <y>-23</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnhmac_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hmac_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>599</x>
+     <y>549</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>357</x>
+     <y>-14</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txthmac_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hmac_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>451</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>416</x>
+     <y>-6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnrc2_calc</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rc2_calc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>633</x>
+     <y>556</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>765</x>
+     <y>-16</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>txtrc2_input</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rc2_input_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>447</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>-22</y>
     </hint>
    </hints>
   </connection>
@@ -1791,5 +3080,21 @@
   <slot>oct_input_change()</slot>
   <slot>protoc_calc()</slot>
   <slot>protoc_input_change()</slot>
+  <slot>asm_calc()</slot>
+  <slot>asm_input_change()</slot>
+  <slot>crc32_calc()</slot>
+  <slot>crc32_input_change()</slot>
+  <slot>adler32_calc()</slot>
+  <slot>adler32_input_change()</slot>
+  <slot>md5_calc()</slot>
+  <slot>md5_input_change()</slot>
+  <slot>sha_calc()</slot>
+  <slot>sha_input_change()</slot>
+  <slot>aes_calc()</slot>
+  <slot>aes_input_change()</slot>
+  <slot>hmac_calc()</slot>
+  <slot>hmac_input_change()</slot>
+  <slot>rc2_calc()</slot>
+  <slot>rc2_input_change()</slot>
  </slots>
 </ui>

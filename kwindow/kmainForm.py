@@ -2,11 +2,11 @@ import datetime
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 
-from common import Util
+from common import Util, AsmUtil
 from kwindow.kmain import Ui_MainWindow
 import urllib.parse
 import platform
-import os,re
+import os,re,zlib,hashlib,hmac
 
 
 class kmainForm(QMainWindow,Ui_MainWindow):
@@ -175,16 +175,19 @@ class kmainForm(QMainWindow,Ui_MainWindow):
 
     def hexdump_calc(self):
         inputdata=self.txthexdump_input.toPlainText()
-        if "  " in inputdata:
-            res=Util.HexdumpReplaceLeftRight(inputdata)
-            self.txthexdump_output.setPlainText(res)
-        else:
-            res=Util.ByteToHexStr(inputdata)
-            self.txthexdump_output.setPlainText(res)
-        cmbidx=self.cmbhexdump.currentIndex()
-        if cmbidx>=1 and cmbidx<=2:
-            res=Util.hexSplit(self.txthexdump_output.toPlainText(),cmbidx)
-            self.txthexdump_output.setPlainText(res)
+        try:
+            if "  " in inputdata:
+                res=Util.HexdumpReplaceLeftRight(inputdata)
+                self.txthexdump_output.setPlainText(res)
+            else:
+                res=Util.ByteToHexStr(inputdata)
+                self.txthexdump_output.setPlainText(res)
+            cmbidx=self.cmbhexdump.currentIndex()
+            if cmbidx>=1 and cmbidx<=2:
+                res=Util.hexSplit(self.txthexdump_output.toPlainText(),cmbidx)
+                self.txthexdump_output.setPlainText(res)
+        except:
+            self.txthexdump_output.setPlainText("")
 
     def hexdump_input_change(self):
         self.hexdump_calc()
@@ -266,6 +269,158 @@ class kmainForm(QMainWindow,Ui_MainWindow):
 
     def protoc_input_change(self):
         self.protoc_calc()
+
+    def asm_calc(self):
+        inputdata = self.txtasm_input.toPlainText()
+        try:
+            if self.rdoasm.isChecked():
+                res=AsmUtil.asm(self.cmbasm.currentIndex(),inputdata)
+                self.txtasm_output.setPlainText(res)
+            else:
+                buff=Util.StrToHexSplit(inputdata)
+                res=AsmUtil.disasm(self.cmbasm.currentIndex(),buff)
+                self.txtasm_output.setPlainText(res)
+        except Exception as ex:
+            # self.appendLog("解析异常.请检查数据和模式是否正确."+str(ex))
+            self.txtasm_output.setPlainText("")
+
+    def asm_input_change(self):
+        self.asm_calc()
+
+    def crc32_calc(self):
+        inputdata=self.txtcrc32_input.toPlainText()
+        buff=inputdata.encode("utf-8")
+        try:
+            if self.chkcrc32_ishex.isChecked():
+                buff=Util.StrToHexSplit(inputdata)
+            if len(buff)<=0:
+                self.appendLog("crc32 input未输入正确数据")
+                return
+            res=zlib.crc32(buff)
+            self.txtcrc32_output.setPlainText(str(res))
+        except:
+            self.txtcrc32_output.setPlainText("")
+
+    def crc32_input_change(self):
+        self.crc32_calc()
+
+    def adler32_calc(self):
+        inputdata = self.txtadler32_input.toPlainText()
+        buff = inputdata.encode("utf-8")
+        try:
+            if self.chkadler32_ishex.isChecked():
+                buff = Util.StrToHexSplit(inputdata)
+            if len(buff) <= 0:
+                self.appendLog("adler32 input未输入正确数据")
+                return
+            res = zlib.adler32(buff)
+            self.txtadler32_output.setPlainText(str(res))
+        except:
+            self.txtadler32_output.setPlainText("")
+
+    def adler32_input_change(self):
+        self.adler32_calc()
+
+    def md5_calc(self):
+        inputdata = self.txtmd5_input.toPlainText()
+        buff = inputdata.encode("utf-8")
+        if self.chkmd5_ishex.isChecked():
+            try:
+                buff = Util.StrToHexSplit(inputdata)
+            except:
+                self.txtmd5_output.setPlainText("")
+                return
+        if len(buff) <= 0:
+            self.appendLog("md5 input未输入正确数据")
+            return
+        m= hashlib.md5()
+        m.update(buff)
+        res = m.hexdigest()
+        self.txtmd5_output.setPlainText(res)
+
+    def md5_input_change(self):
+        self.md5_calc()
+
+    def sha_calc(self):
+        inputdata = self.txtsha_input.toPlainText()
+        buff = inputdata.encode("utf-8")
+        if self.chksha_ishex.isChecked():
+            try:
+                buff = Util.StrToHexSplit(inputdata)
+            except:
+                self.txtsha_output.setPlainText("")
+                return
+        if len(buff) <= 0:
+            self.appendLog("sha input未输入正确数据")
+            return
+        cmbidx=self.cmbsha.currentIndex()
+        if cmbidx==1:
+            m = hashlib.sha1()
+        elif cmbidx==2:
+            m = hashlib.sha224()
+        elif cmbidx==3:
+            m = hashlib.sha512()
+        else:
+            m = hashlib.sha256()
+        m.update(buff)
+        res = m.hexdigest()
+        self.txtsha_output.setPlainText(res)
+
+    def sha_input_change(self):
+        self.sha_calc()
+
+    def hmac_calc(self):
+        inputdata = self.txthmac_input.toPlainText()
+        buff = inputdata.encode("utf-8")
+        if self.chkhmac_ishex.isChecked():
+            try:
+                buff = Util.StrToHexSplit(inputdata)
+            except:
+                self.txthexdump_output.setPlainText("")
+                return
+        if len(buff) <= 0:
+            self.appendLog("hmac input未输入正确数据")
+            return
+        inputkey=self.txthmac_key.text()
+        buff_key = inputkey.encode("utf-8")
+        if self.chkhmac_ishex.isChecked():
+            try:
+                buff_key = Util.StrToHexSplit(inputkey)
+            except:
+                self.txthexdump_output.setPlainText("")
+                return
+
+        cmbidx = self.cmbhmac.currentIndex()
+        if cmbidx == 1:
+            m = hashlib.sha1
+        elif cmbidx == 2:
+            m = hashlib.sha224
+        elif cmbidx == 3:
+            m = hashlib.sha256
+        elif cmbidx == 4:
+            m = hashlib.sha512
+        else:
+            m = hashlib.md5
+        h = hmac.new(buff_key,buff,digestmod=m)
+        self.txthmac_output.setPlainText(h.hexdigest())
+
+    def hmac_input_change(self):
+        self.hmac_calc()
+
+    def aes_calc(self):
+        inputdata=self.txtaes_input.toPlainText()
+
+
+
+    def aes_input_change(self):
+        self.aes_calc()
+
+    def rc2_calc(self):
+        pass
+
+    def rc2_input_change(self):
+        self.rc2_calc()
+
 
 if __name__=="__main__":
     app=QApplication(sys.argv)

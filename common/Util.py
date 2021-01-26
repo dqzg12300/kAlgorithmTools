@@ -2,7 +2,6 @@ import base64
 import re,struct,os,zlib
 import subprocess
 
-
 def StrToHexSplit(input):
     buf = bytes(0)
     lines = re.split(r'[\r\n ]',input)
@@ -154,7 +153,7 @@ def curtomBase64(bkey,input_bytes):
 def getScriptPath(scriptname,platform):
     rootpath=getProjectPath()
     if platform == "Windows":
-        script_path = r"\script\win\%s.win" % scriptname
+        script_path = r"\script\win\%s.bat" % scriptname
     elif platform=="Darwin":
         script_path = "/script/mac/%s.sh" % scriptname
     else:
@@ -310,3 +309,12 @@ def execProcess(processName,processArg,data):
         if process.poll() != 0:
             process.wait()
     return output
+
+def getBuff(data,ishex):
+    try:
+        outdata=data.encode("utf-8")
+        if ishex:
+            outdata=StrToHexSplit(data)
+        return outdata
+    except:
+        return b""
