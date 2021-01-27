@@ -2,7 +2,7 @@ import datetime
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 
-from common import Util, AsmUtil
+from common import Util, AsmUtil, Enums, AesUtil
 from kwindow.kmain import Ui_MainWindow
 import urllib.parse
 import platform
@@ -288,14 +288,11 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.asm_calc()
 
     def crc32_calc(self):
-        inputdata=self.txtcrc32_input.toPlainText()
-        buff=inputdata.encode("utf-8")
+        buff=Util.getBuff(self.txtcrc32_input.toPlainText(),self.chkcrc32_ishex.isChecked())
+        if len(buff) <= 0:
+            self.appendLog("crc32 input未输入正确数据")
+            return
         try:
-            if self.chkcrc32_ishex.isChecked():
-                buff=Util.StrToHexSplit(inputdata)
-            if len(buff)<=0:
-                self.appendLog("crc32 input未输入正确数据")
-                return
             res=zlib.crc32(buff)
             self.txtcrc32_output.setPlainText(str(res))
         except:
@@ -305,14 +302,11 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.crc32_calc()
 
     def adler32_calc(self):
-        inputdata = self.txtadler32_input.toPlainText()
-        buff = inputdata.encode("utf-8")
+        buff = Util.getBuff(self.txtadler32_input.toPlainText(),self.chkadler32_ishex.isChecked())
+        if len(buff) <= 0:
+            self.appendLog("adler32 input未输入正确数据")
+            return
         try:
-            if self.chkadler32_ishex.isChecked():
-                buff = Util.StrToHexSplit(inputdata)
-            if len(buff) <= 0:
-                self.appendLog("adler32 input未输入正确数据")
-                return
             res = zlib.adler32(buff)
             self.txtadler32_output.setPlainText(str(res))
         except:
@@ -322,14 +316,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.adler32_calc()
 
     def md5_calc(self):
-        inputdata = self.txtmd5_input.toPlainText()
-        buff = inputdata.encode("utf-8")
-        if self.chkmd5_ishex.isChecked():
-            try:
-                buff = Util.StrToHexSplit(inputdata)
-            except:
-                self.txtmd5_output.setPlainText("")
-                return
+        buff =Util.getBuff(self.txtmd5_input.toPlainText(),self.chkmd5_ishex.isChecked())
         if len(buff) <= 0:
             self.appendLog("md5 input未输入正确数据")
             return
@@ -342,14 +329,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.md5_calc()
 
     def sha_calc(self):
-        inputdata = self.txtsha_input.toPlainText()
-        buff = inputdata.encode("utf-8")
-        if self.chksha_ishex.isChecked():
-            try:
-                buff = Util.StrToHexSplit(inputdata)
-            except:
-                self.txtsha_output.setPlainText("")
-                return
+        buff =Util.getBuff(self.txtsha_input.toPlainText(),self.chksha_ishex.isChecked())
         if len(buff) <= 0:
             self.appendLog("sha input未输入正确数据")
             return
@@ -370,26 +350,13 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.sha_calc()
 
     def hmac_calc(self):
-        inputdata = self.txthmac_input.toPlainText()
-        buff = inputdata.encode("utf-8")
-        if self.chkhmac_ishex.isChecked():
-            try:
-                buff = Util.StrToHexSplit(inputdata)
-            except:
-                self.txthexdump_output.setPlainText("")
-                return
+        buff = Util.getBuff(self.txthmac_input.toPlainText(),self.chkhmac_ishex.isChecked())
         if len(buff) <= 0:
             self.appendLog("hmac input未输入正确数据")
             return
-        inputkey=self.txthmac_key.text()
-        buff_key = inputkey.encode("utf-8")
-        if self.chkhmac_ishex.isChecked():
-            try:
-                buff_key = Util.StrToHexSplit(inputkey)
-            except:
-                self.txthexdump_output.setPlainText("")
-                return
-
+        buff_key=Util.getBuff(self.txthmac_key.text(),self.chkhmac_key_ishex.isChecked())
+        if self.chkhmac_key_ishex.isChecked():
+            self.txthmac_key.setText(Util.b2hexSpace(buff_key))
         cmbidx = self.cmbhmac.currentIndex()
         if cmbidx == 1:
             m = hashlib.sha1
@@ -408,9 +375,53 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.hmac_calc()
 
     def aes_calc(self):
-        inputdata=self.txtaes_input.toPlainText()
+        buff=Util.getBuff(self.txtaes_input.toPlainText(),self.chkaes_ishex.isChecked())
+        if len(buff)<=0:
+            self.appendLog("aes input未输入正确数据")
+            return
+        buffkey=Util.getBuff(self.txtaes_key.text(),self.chkaes_key_ishex.isChecked())
+        buffiv=Util.getBuff(self.txtaes_iv.text(),self.chkaes_iv_ishex.isChecked())
+        try:
+            if self.cmbaes_mode.currentIndex()==Enums.AES_MODE.CBC.value:
+                if self.rdoaes_encrypt.isChecked():
+                    res=AesUtil.cbc_encrypt(buffkey,buffiv,buff)
+                else:
+                    res = AesUtil.cbc_decrypt(buffkey, buffiv, buff)
+                self.txtaes_output.setPlainText(Util.b2hex(res))
+            elif self.cmbaes_mode.currentIndex()==Enums.AES_MODE.ECB.value:
+                if self.rdoaes_encrypt.isChecked():
+                    res=AesUtil.ecb_encrypt(buffkey,buff)
+                else:
+                    res = AesUtil.ecb_decrypt(buffkey, buff)
+                self.txtaes_output.setPlainText(Util.b2hex(res))
+            elif self.cmbaes_mode.currentIndex()==Enums.AES_MODE.GCM.value:
+                buff_nonce=Util.getBuff(self.txtaes_nonce.text(),self.chkaes_nonce_ishex.isChecked())
+                if self.rdoaes_encrypt.isChecked():
+                    res,tag=AesUtil.gcm_encrypt(buffkey,buffiv,buff_nonce,buff)
+                    self.txtaes_tag.setText(Util.b2hex(tag))
+                else:
+                    bufftag = Util.getBuff(self.txtaes_tag.text(), self.chkaes_tag_ishex.isChecked())
+                    res = AesUtil.gcm_decrypt(buffkey,buffiv,buff_nonce, buff,bufftag)
+                self.txtaes_output.setPlainText(Util.b2hex(res))
+        except Exception as ex:
+            print(ex)
+            self.txtaes_output.setPlainText("")
 
 
+
+    def aes_decrypt_check(self):
+        if self.cmbaes_mode.currentIndex()==Enums.AES_MODE.GCM.value:
+            self.txtaes_tag.setEnabled(True)
+            self.txtaes_tag.setReadOnly(True)
+            self.txtaes_nonce.setEnabled(True)
+            if self.rdoaes_decrypt.isChecked():
+                self.txtaes_tag.setReadOnly(False)
+        else:
+            self.txtaes_tag.setEnabled(False)
+            self.txtaes_nonce.setEnabled(False)
+
+    def aes_mode_change(self):
+        self.aes_decrypt_check()
 
     def aes_input_change(self):
         self.aes_calc()

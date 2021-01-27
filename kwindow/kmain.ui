@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1035</width>
-    <height>702</height>
+    <width>1019</width>
+    <height>760</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
            <string>zlib编解码</string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_16">
            <attribute name="title">
@@ -761,7 +761,7 @@
         <item row="0" column="0">
          <widget class="QTabWidget" name="tabWidget_3">
           <property name="currentIndex">
-           <number>5</number>
+           <number>7</number>
           </property>
           <widget class="QWidget" name="tab_9">
            <attribute name="title">
@@ -1418,7 +1418,7 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>180</height>
+                <height>16777215</height>
                </size>
               </property>
               <property name="title">
@@ -1446,7 +1446,7 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>220</height>
+                <height>250</height>
                </size>
               </property>
               <property name="frameShape">
@@ -1491,41 +1491,61 @@
                 </widget>
                </item>
                <item row="2" column="0">
-                <widget class="QLabel" name="label_12">
+                <widget class="QLabel" name="label_18">
                  <property name="text">
-                  <string>gcmTag：</string>
+                  <string>nonce：</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1" rowspan="2" colspan="2">
-                <widget class="QLineEdit" name="txtaes_tag">
+               <item row="2" column="1" colspan="2">
+                <widget class="QLineEdit" name="txtaes_nonce">
                  <property name="enabled">
                   <bool>false</bool>
                  </property>
                 </widget>
                </item>
                <item row="2" column="3">
+                <widget class="QCheckBox" name="chkaes_nonce_ishex">
+                 <property name="text">
+                  <string>nonce为16进制</string>
+                 </property>
+                 <property name="checked">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_12">
+                 <property name="text">
+                  <string>gcmTag：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1" colspan="2">
+                <widget class="QLineEdit" name="txtaes_tag">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="3">
                 <widget class="QCheckBox" name="chkaes_tag_ishex">
                  <property name="text">
                   <string>tag为16进制</string>
                  </property>
-                </widget>
-               </item>
-               <item row="3" column="3" rowspan="2">
-                <widget class="QCheckBox" name="chkaes_ishex">
-                 <property name="text">
-                  <string>输入为16进制</string>
+                 <property name="checked">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="0" rowspan="2">
+               <item row="4" column="0">
                 <widget class="QLabel" name="label_11">
                  <property name="text">
                   <string>mode：</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="1" rowspan="2">
+               <item row="4" column="1">
                 <widget class="QComboBox" name="cmbaes_mode">
                  <item>
                   <property name="text">
@@ -1544,29 +1564,14 @@
                  </item>
                 </widget>
                </item>
-               <item row="5" column="3" rowspan="2">
-                <widget class="QPushButton" name="btnadler32_calc_2">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>120</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>8进制字符串转中文</string>
-                 </property>
+               <item row="4" column="3">
+                <widget class="QCheckBox" name="chkaes_ishex">
                  <property name="text">
-                  <string>计算</string>
+                  <string>输入为16进制</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="1">
+               <item row="5" column="1">
                 <widget class="QRadioButton" name="rdoaes_encrypt">
                  <property name="text">
                   <string>encrypt</string>
@@ -1576,10 +1581,32 @@
                  </property>
                 </widget>
                </item>
-               <item row="6" column="2">
+               <item row="5" column="2">
                 <widget class="QRadioButton" name="rdoaes_decrypt">
                  <property name="text">
                   <string>decrypt</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="3">
+                <widget class="QPushButton" name="btnadler32_calc_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>8进制字符串转中文</string>
+                 </property>
+                 <property name="text">
+                  <string>计算</string>
                  </property>
                 </widget>
                </item>
@@ -2307,7 +2334,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1035</width>
+     <width>1019</width>
      <height>26</height>
     </rect>
    </property>
@@ -2353,7 +2380,7 @@
    <slot>reinstall_android()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>257</x>
+     <x>244</x>
      <y>205</y>
     </hint>
     <hint type="destinationlabel">
@@ -2369,7 +2396,7 @@
    <slot>start_frida32()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>257</x>
+     <x>244</x>
      <y>403</y>
     </hint>
     <hint type="destinationlabel">
@@ -2385,7 +2412,7 @@
    <slot>start_frida64()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>533</x>
+     <x>520</x>
      <y>403</y>
     </hint>
     <hint type="destinationlabel">
@@ -2401,7 +2428,7 @@
    <slot>start_ida32()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>439</x>
+     <x>426</x>
      <y>565</y>
     </hint>
     <hint type="destinationlabel">
@@ -2417,7 +2444,7 @@
    <slot>start_ida64()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>623</x>
+     <x>610</x>
      <y>565</y>
     </hint>
     <hint type="destinationlabel">
@@ -2433,7 +2460,7 @@
    <slot>start_gdb32()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>439</x>
+     <x>426</x>
      <y>637</y>
     </hint>
     <hint type="destinationlabel">
@@ -2449,7 +2476,7 @@
    <slot>start_gdb64()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>623</x>
+     <x>610</x>
      <y>637</y>
     </hint>
     <hint type="destinationlabel">
@@ -2465,8 +2492,8 @@
    <slot>kill_debug()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>533</x>
-     <y>200</y>
+     <x>520</x>
+     <y>170</y>
     </hint>
     <hint type="destinationlabel">
      <x>1031</x>
@@ -2481,8 +2508,8 @@
    <slot>base64_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>162</x>
-     <y>256</y>
+     <x>147</x>
+     <y>172</y>
     </hint>
     <hint type="destinationlabel">
      <x>962</x>
@@ -2513,7 +2540,7 @@
    <slot>base64_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>685</x>
+     <x>676</x>
      <y>634</y>
     </hint>
     <hint type="destinationlabel">
@@ -2545,7 +2572,7 @@
    <slot>hex_toggled()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>337</x>
+     <x>328</x>
      <y>629</y>
     </hint>
     <hint type="destinationlabel">
@@ -2561,8 +2588,8 @@
    <slot>url_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
+     <x>134</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>1031</x>
@@ -2577,8 +2604,8 @@
    <slot>url_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>669</x>
-     <y>623</y>
+     <x>134</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
      <x>1030</x>
@@ -2593,8 +2620,8 @@
    <slot>binformat_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>562</x>
-     <y>226</y>
+     <x>148</x>
+     <y>163</y>
     </hint>
     <hint type="destinationlabel">
      <x>1031</x>
@@ -2609,8 +2636,8 @@
    <slot>binformat_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>600</x>
-     <y>586</y>
+     <x>654</x>
+     <y>627</y>
     </hint>
     <hint type="destinationlabel">
      <x>1032</x>
@@ -2625,8 +2652,8 @@
    <slot>hexdump_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>669</x>
-     <y>627</y>
+     <x>134</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
      <x>1030</x>
@@ -2641,8 +2668,8 @@
    <slot>hexdump_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
+     <x>134</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>1030</x>
@@ -2657,8 +2684,8 @@
    <slot>hexdump_cmb_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>331</x>
-     <y>610</y>
+     <x>134</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>1034</x>
@@ -2673,8 +2700,8 @@
    <slot>zlib_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>669</x>
-     <y>627</y>
+     <x>134</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
      <x>555</x>
@@ -2689,8 +2716,8 @@
    <slot>zlib_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
+     <x>134</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>699</x>
@@ -2705,8 +2732,8 @@
    <slot>varint_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>421</x>
-     <y>627</y>
+     <x>134</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
      <x>1016</x>
@@ -2721,8 +2748,8 @@
    <slot>varint_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>346</x>
-     <y>264</y>
+     <x>134</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>435</x>
@@ -2737,8 +2764,8 @@
    <slot>oct_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>416</x>
-     <y>627</y>
+     <x>134</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
      <x>192</x>
@@ -2753,8 +2780,8 @@
    <slot>oct_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
+     <x>134</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>247</x>
@@ -2769,8 +2796,8 @@
    <slot>protoc_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>416</x>
-     <y>627</y>
+     <x>134</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
      <x>1031</x>
@@ -2785,8 +2812,8 @@
    <slot>protoc_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
+     <x>134</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>1032</x>
@@ -2801,8 +2828,8 @@
    <slot>asm_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>606</x>
-     <y>592</y>
+     <x>134</x>
+     <y>143</y>
     </hint>
     <hint type="destinationlabel">
      <x>1028</x>
@@ -2817,8 +2844,8 @@
    <slot>asm_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>548</x>
-     <y>238</y>
+     <x>134</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>1029</x>
@@ -2833,8 +2860,8 @@
    <slot>crc32_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>482</x>
-     <y>598</y>
+     <x>136</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
      <x>1027</x>
@@ -2849,8 +2876,8 @@
    <slot>crc32_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>536</x>
-     <y>208</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>1030</x>
@@ -2865,8 +2892,8 @@
    <slot>adler32_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>510</x>
-     <y>599</y>
+     <x>136</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
      <x>1028</x>
@@ -2881,8 +2908,8 @@
    <slot>adler32_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>420</x>
-     <y>185</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -2897,8 +2924,8 @@
    <slot>md5_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>491</x>
-     <y>599</y>
+     <x>136</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
      <x>1035</x>
@@ -2913,8 +2940,8 @@
    <slot>md5_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>541</x>
-     <y>207</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>1033</x>
@@ -2929,8 +2956,8 @@
    <slot>sha_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>594</x>
-     <y>597</y>
+     <x>136</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
      <x>548</x>
@@ -2945,8 +2972,8 @@
    <slot>sha_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>502</x>
-     <y>201</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>575</x>
@@ -2961,8 +2988,8 @@
    <slot>aes_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>597</x>
-     <y>527</y>
+     <x>674</x>
+     <y>627</y>
     </hint>
     <hint type="destinationlabel">
      <x>573</x>
@@ -2993,8 +3020,8 @@
    <slot>hmac_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>599</x>
-     <y>549</y>
+     <x>136</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
      <x>357</x>
@@ -3009,8 +3036,8 @@
    <slot>hmac_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>451</x>
-     <y>204</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>416</x>
@@ -3025,8 +3052,8 @@
    <slot>rc2_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>633</x>
-     <y>556</y>
+     <x>136</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
      <x>765</x>
@@ -3041,12 +3068,44 @@
    <slot>rc2_input_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>447</x>
-     <y>202</y>
+     <x>136</x>
+     <y>136</y>
     </hint>
     <hint type="destinationlabel">
      <x>604</x>
      <y>-22</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rdoaes_decrypt</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aes_decrypt_check()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>404</x>
+     <y>612</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>715</x>
+     <y>-4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cmbaes_mode</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aes_mode_change()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>581</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>-2</y>
     </hint>
    </hints>
   </connection>
@@ -3096,5 +3155,7 @@
   <slot>hmac_input_change()</slot>
   <slot>rc2_calc()</slot>
   <slot>rc2_input_change()</slot>
+  <slot>aes_decrypt_check()</slot>
+  <slot>aes_mode_change()</slot>
  </slots>
 </ui>

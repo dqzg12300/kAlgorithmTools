@@ -314,7 +314,11 @@ def getBuff(data,ishex):
     try:
         outdata=data.encode("utf-8")
         if ishex:
-            outdata=StrToHexSplit(data)
+            if " "in data:
+                outdata=StrToHexSplit(data)
+            else:
+                outdata=ByteToHexStr(data)
+                outdata = StrToHexSplit(outdata)
         return outdata
     except:
         return b""
