@@ -28,10 +28,10 @@
         <item row="0" column="0">
          <widget class="QTabWidget" name="tabWidget_4">
           <property name="toolTip">
-           <string>zlib编解码</string>
+           <string/>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="tab_16">
            <attribute name="title">
@@ -100,17 +100,25 @@
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_20">
-               <item row="0" column="1">
-                <widget class="QLabel" name="lbbinformat_cnt">
-                 <property name="text">
-                  <string>0</string>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="3">
-                <widget class="QRadioButton" name="rdohex2str">
+                <widget class="QPushButton" name="btnbytes2str">
+                 <property name="minimumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>字符串转16进制和16进制转字符串</string>
+                 </property>
                  <property name="text">
-                  <string>hex2str</string>
+                  <string>bytes转字符串</string>
                  </property>
                 </widget>
                </item>
@@ -127,35 +135,32 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="4">
-                <widget class="QPushButton" name="btnbinformat">
+               <item row="0" column="1">
+                <widget class="QLabel" name="lbbinformat_cnt">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QPushButton" name="btnstr2bytes">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
-                   <height>50</height>
+                   <width>120</width>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
                   <string>字符串转16进制和16进制转字符串</string>
                  </property>
                  <property name="text">
-                  <string>计算</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QRadioButton" name="rdostr2hex">
-                 <property name="text">
-                  <string>str2hex</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
+                  <string>字符串转bytes</string>
                  </property>
                 </widget>
                </item>
@@ -283,13 +288,13 @@
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
@@ -408,45 +413,50 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="rdodisasm">
-                   <property name="text">
-                    <string>disasm</string>
+                  <widget class="QPushButton" name="btnzlib_calc_5">
+                   <property name="minimumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
                    </property>
-                   <property name="checked">
-                    <bool>true</bool>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string>汇编转二进制和二进制转汇编</string>
+                   </property>
+                   <property name="text">
+                    <string>汇编</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="rdoasm">
+                  <widget class="QPushButton" name="btnzlib_calc_6">
+                   <property name="minimumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string>汇编转二进制和二进制转汇编</string>
+                   </property>
                    <property name="text">
-                    <string>asm</string>
+                    <string>反汇编</string>
                    </property>
                   </widget>
                  </item>
                 </layout>
-               </item>
-               <item row="0" column="1">
-                <widget class="QPushButton" name="btnzlib_calc_5">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>120</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>汇编转二进制和二进制转汇编</string>
-                 </property>
-                 <property name="text">
-                  <string>计算</string>
-                 </property>
-                </widget>
                </item>
               </layout>
              </widget>
@@ -513,53 +523,60 @@
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_37">
-               <item row="0" column="0">
-                <layout class="QHBoxLayout" name="horizontalLayout_5">
-                 <item>
-                  <widget class="QRadioButton" name="rdozlib">
-                   <property name="text">
-                    <string>zlib</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="rdounzlib">
-                   <property name="text">
-                    <string>unzlib</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="chkzlib_ishex">
-                   <property name="text">
-                    <string>输入为16进制</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+               <item row="0" column="2">
+                <widget class="QCheckBox" name="chkzlib_ishex">
+                 <property name="maximumSize">
+                  <size>
+                   <width>200</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>输入为16进制</string>
+                 </property>
+                </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QPushButton" name="btnzlib_calc">
+               <item row="0" column="4">
+                <widget class="QPushButton" name="btnzlib_unzlib">
                  <property name="minimumSize">
                   <size>
-                   <width>0</width>
-                   <height>50</height>
+                   <width>120</width>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
                   <string>zlib压缩和解压</string>
                  </property>
                  <property name="text">
-                  <string>计算</string>
+                  <string>解压</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QPushButton" name="btnzlib_zlib">
+                 <property name="minimumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>zlib压缩和解压</string>
+                 </property>
+                 <property name="text">
+                  <string>压缩</string>
                  </property>
                 </widget>
                </item>
@@ -633,13 +650,13 @@
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
@@ -727,17 +744,17 @@
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>匹配hexdump中间的字节部分出来</string>
+                  <string/>
                  </property>
                  <property name="text">
                   <string>计算</string>
@@ -841,20 +858,20 @@
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>8进制字符串转中文</string>
+                  <string/>
                  </property>
                  <property name="text">
-                  <string>计算</string>
+                  <string>加密</string>
                  </property>
                 </widget>
                </item>
@@ -928,20 +945,20 @@
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>8进制字符串转中文</string>
+                  <string/>
                  </property>
                  <property name="text">
-                  <string>计算</string>
+                  <string>加密</string>
                  </property>
                 </widget>
                </item>
@@ -1028,20 +1045,20 @@
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>8进制字符串转中文</string>
+                  <string/>
                  </property>
                  <property name="text">
-                  <string>计算</string>
+                  <string>加密</string>
                  </property>
                 </widget>
                </item>
@@ -1178,20 +1195,20 @@
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>8进制字符串转中文</string>
+                  <string/>
                  </property>
                  <property name="text">
-                  <string>计算</string>
+                  <string>加密</string>
                  </property>
                 </widget>
                </item>
@@ -1228,7 +1245,7 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>220</height>
+                <height>16777215</height>
                </size>
               </property>
               <property name="title">
@@ -1250,13 +1267,13 @@
               <property name="minimumSize">
                <size>
                 <width>0</width>
-                <height>70</height>
+                <height>60</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>16777215</height>
+                <height>100</height>
                </size>
               </property>
               <property name="frameShape">
@@ -1266,6 +1283,19 @@
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_66">
+               <item row="2" column="2">
+                <widget class="QCheckBox" name="chkhmac_ishex">
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>输入为16进制</string>
+                 </property>
+                </widget>
+               </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="label_14">
                  <property name="maximumSize">
@@ -1314,25 +1344,13 @@
                  </item>
                 </widget>
                </item>
-               <item row="0" column="3" rowspan="2">
-                <widget class="QPushButton" name="btnhmac_calc">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>50</height>
-                  </size>
-                 </property>
+               <item row="1" column="1" colspan="2">
+                <widget class="QLineEdit" name="txthmac_key">
                  <property name="maximumSize">
                   <size>
-                   <width>120</width>
-                   <height>50</height>
+                   <width>300</width>
+                   <height>16777215</height>
                   </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>8进制字符串转中文</string>
-                 </property>
-                 <property name="text">
-                  <string>计算</string>
                  </property>
                 </widget>
                </item>
@@ -1349,16 +1367,6 @@
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1" colspan="2">
-                <widget class="QLineEdit" name="txthmac_key">
-                 <property name="maximumSize">
-                  <size>
-                   <width>300</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
                <item row="2" column="1">
                 <widget class="QCheckBox" name="chkhmac_key_ishex">
                  <property name="maximumSize">
@@ -1372,16 +1380,25 @@
                  </property>
                 </widget>
                </item>
-               <item row="2" column="2">
-                <widget class="QCheckBox" name="chkhmac_ishex">
-                 <property name="maximumSize">
+               <item row="0" column="3" rowspan="2">
+                <widget class="QPushButton" name="btnhmac_calc">
+                 <property name="minimumSize">
                   <size>
-                   <width>150</width>
-                   <height>16777215</height>
+                   <width>0</width>
+                   <height>40</height>
                   </size>
                  </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string/>
+                 </property>
                  <property name="text">
-                  <string>输入为16进制</string>
+                  <string>加密</string>
                  </property>
                 </widget>
                </item>
@@ -1400,7 +1417,7 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>170</height>
+                <height>160</height>
                </size>
               </property>
               <property name="title">
@@ -1440,13 +1457,13 @@
               <property name="minimumSize">
                <size>
                 <width>0</width>
-                <height>70</height>
+                <height>220</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>250</height>
+                <height>260</height>
                </size>
               </property>
               <property name="frameShape">
@@ -1458,15 +1475,27 @@
               <layout class="QGridLayout" name="gridLayout_55">
                <item row="0" column="0">
                 <widget class="QLabel" name="label_9">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>key：</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1" colspan="2">
+               <item row="0" column="1">
                 <widget class="QLineEdit" name="txtaes_key"/>
                </item>
-               <item row="0" column="3">
+               <item row="0" column="2">
                 <widget class="QCheckBox" name="chkaes_key_ishex">
                  <property name="text">
                   <string>key为16进制</string>
@@ -1475,15 +1504,27 @@
                </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="label_10">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>iv：</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1" colspan="2">
+               <item row="1" column="1">
                 <widget class="QLineEdit" name="txtaes_iv"/>
                </item>
-               <item row="1" column="3">
+               <item row="1" column="2">
                 <widget class="QCheckBox" name="chkaes_iv_ishex">
                  <property name="text">
                   <string>iv为16进制</string>
@@ -1492,19 +1533,31 @@
                </item>
                <item row="2" column="0">
                 <widget class="QLabel" name="label_18">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>nonce：</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1" colspan="2">
+               <item row="2" column="1">
                 <widget class="QLineEdit" name="txtaes_nonce">
                  <property name="enabled">
                   <bool>false</bool>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="3">
+               <item row="2" column="2">
                 <widget class="QCheckBox" name="chkaes_nonce_ishex">
                  <property name="text">
                   <string>nonce为16进制</string>
@@ -1516,19 +1569,31 @@
                </item>
                <item row="3" column="0">
                 <widget class="QLabel" name="label_12">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>gcmTag：</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1" colspan="2">
+               <item row="3" column="1">
                 <widget class="QLineEdit" name="txtaes_tag">
                  <property name="enabled">
                   <bool>false</bool>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="3">
+               <item row="3" column="2">
                 <widget class="QCheckBox" name="chkaes_tag_ishex">
                  <property name="text">
                   <string>tag为16进制</string>
@@ -1540,6 +1605,18 @@
                </item>
                <item row="4" column="0">
                 <widget class="QLabel" name="label_11">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>mode：</string>
                  </property>
@@ -1564,49 +1641,275 @@
                  </item>
                 </widget>
                </item>
-               <item row="4" column="3">
+               <item row="4" column="2">
                 <widget class="QCheckBox" name="chkaes_ishex">
                  <property name="text">
-                  <string>输入为16进制</string>
+                  <string>input为16进制</string>
                  </property>
                 </widget>
                </item>
                <item row="5" column="1">
-                <widget class="QRadioButton" name="rdoaes_encrypt">
-                 <property name="text">
-                  <string>encrypt</string>
-                 </property>
-                 <property name="checked">
+                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                 <item>
+                  <widget class="QPushButton" name="btnadler32_encrypt">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="text">
+                    <string>加密</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnadler32_decrypt">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="text">
+                    <string>解密</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_23">
+           <attribute name="title">
+            <string>des</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_80">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_45">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>160</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_79">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtdes_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_44">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_77">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtdes_output">
+                 <property name="readOnly">
                   <bool>true</bool>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="2">
-                <widget class="QRadioButton" name="rdoaes_decrypt">
-                 <property name="text">
-                  <string>decrypt</string>
-                 </property>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_18">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>160</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>160</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_78">
+               <item row="2" column="1">
+                <widget class="QComboBox" name="cmbdes_mode">
+                 <item>
+                  <property name="text">
+                   <string>CBC</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>ECB</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
-               <item row="5" column="3">
-                <widget class="QPushButton" name="btnadler32_calc_2">
+               <item row="3" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <item>
+                  <widget class="QPushButton" name="btndes_encrypt">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="text">
+                    <string>加密</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btndes_decrypt">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="text">
+                    <string>解密</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_23">
                  <property name="minimumSize">
                   <size>
-                   <width>0</width>
-                   <height>30</height>
+                   <width>60</width>
+                   <height>0</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>120</width>
-                   <height>30</height>
+                   <width>100</width>
+                   <height>16777215</height>
                   </size>
                  </property>
-                 <property name="toolTip">
-                  <string>8进制字符串转中文</string>
+                 <property name="text">
+                  <string>mode：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QCheckBox" name="chkdes_ishex">
+                 <property name="text">
+                  <string>input为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QCheckBox" name="chkdes_iv_ishex">
+                 <property name="text">
+                  <string>iv为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QCheckBox" name="chkdes_key_ishex">
+                 <property name="text">
+                  <string>key为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_20">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
                  </property>
                  <property name="text">
-                  <string>计算</string>
+                  <string>iv：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="txtdes_key"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="txtdes_iv"/>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_19">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>key：</string>
                  </property>
                 </widget>
                </item>
@@ -1619,7 +1922,7 @@
            <attribute name="title">
             <string>rc2</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_72">
+           <layout class="QGridLayout" name="gridLayout_70">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_39">
               <property name="maximumSize">
@@ -1643,7 +1946,7 @@
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>220</height>
+                <height>16777215</height>
                </size>
               </property>
               <property name="title">
@@ -1661,7 +1964,260 @@
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QFrame" name="frame_16">
+             <widget class="QFrame" name="frame_19">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>160</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>160</height>
+               </size>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_84">
+               <item row="2" column="1">
+                <widget class="QComboBox" name="cmbrc2_mode">
+                 <item>
+                  <property name="text">
+                   <string>CBC</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>ECB</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_9">
+                 <item>
+                  <widget class="QPushButton" name="btndes_encrypt_2">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="text">
+                    <string>加密</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btndes_decrypt_2">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <property name="text">
+                    <string>解密</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_24">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>mode：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QCheckBox" name="chkrc2_ishex">
+                 <property name="text">
+                  <string>input为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QCheckBox" name="chkrc2_iv_ishex">
+                 <property name="text">
+                  <string>iv为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QCheckBox" name="chkrc2_key_ishex">
+                 <property name="text">
+                  <string>key为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_21">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>iv：</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="txtrc2_key"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="txtrc2_iv"/>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_22">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>100</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>key：</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_15">
+           <attribute name="title">
+            <string>rsa</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_76">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_40">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>private key</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_59">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtrsa_prikey"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QGroupBox" name="groupBox_41">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>public key</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_60">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtrsa_pubkey">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QGroupBox" name="groupBox_42">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>input</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_73">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtrsa_input"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <widget class="QGroupBox" name="groupBox_43">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>output</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_74">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtrsa_output"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="3" column="0" colspan="2">
+             <widget class="QFrame" name="frame_17">
               <property name="minimumSize">
                <size>
                 <width>0</width>
@@ -1680,82 +2236,70 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QGridLayout" name="gridLayout_70">
+              <layout class="QGridLayout" name="gridLayout_75">
                <item row="0" column="0">
-                <widget class="QLabel" name="label_16">
-                 <property name="maximumSize">
-                  <size>
-                   <width>80</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>key：</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" colspan="3">
-                <widget class="QLineEdit" name="txtrc2_key"/>
-               </item>
-               <item row="0" column="4" rowspan="2">
-                <widget class="QPushButton" name="btnrc2_calc">
+                <widget class="QPushButton" name="btnrsa_gen">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>8进制字符串转中文</string>
+                  <string/>
                  </property>
                  <property name="text">
-                  <string>计算</string>
+                  <string>生成密钥</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_17">
-                 <property name="maximumSize">
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnrsa_encrypt">
+                 <property name="minimumSize">
                   <size>
-                   <width>80</width>
-                   <height>16777215</height>
+                   <width>0</width>
+                   <height>40</height>
                   </size>
                  </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string/>
+                 </property>
                  <property name="text">
-                  <string>iv：</string>
+                  <string>加密</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1" colspan="3">
-                <widget class="QLineEdit" name="txtrc2_iv"/>
-               </item>
-               <item row="2" column="1">
-                <widget class="QRadioButton" name="rdorc2_encrypt">
-                 <property name="text">
-                  <string>encrypt</string>
+               <item row="0" column="2">
+                <widget class="QPushButton" name="btnrsa_decrypt">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>40</height>
+                  </size>
                  </property>
-                 <property name="checked">
-                  <bool>true</bool>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
                  </property>
-                </widget>
-               </item>
-               <item row="2" column="2">
-                <widget class="QRadioButton" name="rdorc2_decrypt">
-                 <property name="text">
-                  <string>decrypt</string>
+                 <property name="toolTip">
+                  <string/>
                  </property>
-                </widget>
-               </item>
-               <item row="2" column="3">
-                <widget class="QCheckBox" name="chkrc2_ishex">
                  <property name="text">
-                  <string>输入为16进制</string>
+                  <string>解密</string>
                  </property>
                 </widget>
                </item>
@@ -1763,11 +2307,6 @@
              </widget>
             </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="tab_15">
-           <attribute name="title">
-            <string>rsa</string>
-           </attribute>
           </widget>
           <widget class="QWidget" name="tab_19">
            <attribute name="title">
@@ -1792,114 +2331,164 @@
            <attribute name="title">
             <string>base64</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_8">
-            <item row="8" column="2">
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <item>
-               <widget class="QCheckBox" name="chkHexInput">
-                <property name="text">
-                 <string>16进制输入</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="chkHexOutput">
-                <property name="text">
-                 <string>16进制显示</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="rdobase64_encode">
-                <property name="text">
-                 <string>encode</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="rdobase64_decode">
-                <property name="text">
-                 <string>decode</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnbase64_calc">
-                <property name="text">
-                 <string>计算</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="0" column="2">
-             <widget class="QLineEdit" name="txtbase64_key">
-              <property name="text">
-               <string>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/</string>
-              </property>
-             </widget>
-            </item>
+           <layout class="QGridLayout" name="gridLayout_83">
             <item row="0" column="0">
-             <widget class="QLabel" name="label_2">
-              <property name="text">
-               <string>密钥:</string>
+             <widget class="QGroupBox" name="groupBox_8">
+              <property name="title">
+               <string>input</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_82">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtbase64_input"/>
+               </item>
+              </layout>
              </widget>
             </item>
-            <item row="6" column="0">
-             <widget class="QLabel" name="label">
-              <property name="text">
-               <string>输入数据:</string>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_9">
+              <property name="title">
+               <string>output</string>
               </property>
+              <layout class="QGridLayout" name="gridLayout_81">
+               <item row="0" column="0">
+                <widget class="QPlainTextEdit" name="txtbase64_output">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
-            </item>
-            <item row="7" column="0">
-             <widget class="QLabel" name="label_3">
-              <property name="text">
-               <string>输出数据:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="2">
-             <widget class="QPlainTextEdit" name="txtbase64_output">
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="2">
-             <widget class="QPlainTextEdit" name="txtbase64_input"/>
             </item>
             <item row="2" column="0">
-             <widget class="QLabel" name="label_4">
-              <property name="text">
-               <string>文件名:</string>
+             <widget class="QFrame" name="frame_5">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
               </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_8">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_2">
+                 <property name="text">
+                  <string>密钥:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="txtbase64_key">
+                 <property name="text">
+                  <string>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QCheckBox" name="chkHexInput">
+                 <property name="text">
+                  <string>input为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_4">
+                 <property name="text">
+                  <string>文件名:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="txtbase64file"/>
+               </item>
+               <item row="1" column="2">
+                <widget class="QCheckBox" name="chkHexOutput">
+                 <property name="text">
+                  <string>output为16进制</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="3">
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <item>
+                  <widget class="QPushButton" name="btnSelect">
+                   <property name="minimumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>选择文件</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton">
+                   <property name="minimumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>保存输出</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnbase64_encode">
+                   <property name="minimumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>编码</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnbase64_decode">
+                   <property name="minimumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>120</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>解码</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
              </widget>
-            </item>
-            <item row="2" column="2">
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QLineEdit" name="txtbase64file"/>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnSelect">
-                <property name="text">
-                 <string>选择</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton">
-                <property name="text">
-                 <string>保存</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
             </item>
            </layout>
           </widget>
@@ -1958,38 +2547,40 @@
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout">
                <item>
-                <widget class="QRadioButton" name="rdourl_encode">
-                 <property name="text">
-                  <string>encode</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QRadioButton" name="radioButton_2">
-                 <property name="text">
-                  <string>decode</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_2">
+                <widget class="QPushButton" name="btnurl_encode">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="text">
-                  <string>计算</string>
+                  <string>编码</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btnurl_decode">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>解码</string>
                  </property>
                 </widget>
                </item>
@@ -2058,25 +2649,47 @@
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_42">
-               <item row="0" column="0">
-                <widget class="QPushButton" name="btnvarint_calc">
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnvarint_calc_encode">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
                    <width>120</width>
-                   <height>50</height>
+                   <height>40</height>
                   </size>
                  </property>
                  <property name="toolTip">
                   <string>protobuf的varint转换</string>
                  </property>
                  <property name="text">
-                  <string>计算</string>
+                  <string>编码</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QPushButton" name="btnvarint_calc_decode">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>protobuf的varint转换</string>
+                 </property>
+                 <property name="text">
+                  <string>解码</string>
                  </property>
                 </widget>
                </item>
@@ -2384,7 +2997,7 @@
      <y>205</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1034</x>
+     <x>1018</x>
      <y>162</y>
     </hint>
    </hints>
@@ -2400,7 +3013,7 @@
      <y>403</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1033</x>
+     <x>1018</x>
      <y>331</y>
     </hint>
    </hints>
@@ -2416,7 +3029,7 @@
      <y>403</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1030</x>
+     <x>1018</x>
      <y>422</y>
     </hint>
    </hints>
@@ -2432,7 +3045,7 @@
      <y>565</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1033</x>
+     <x>1018</x>
      <y>482</y>
     </hint>
    </hints>
@@ -2448,7 +3061,7 @@
      <y>565</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1029</x>
+     <x>1018</x>
      <y>544</y>
     </hint>
    </hints>
@@ -2464,7 +3077,7 @@
      <y>637</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1036</x>
+     <x>1018</x>
      <y>585</y>
     </hint>
    </hints>
@@ -2480,7 +3093,7 @@
      <y>637</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1033</x>
+     <x>1018</x>
      <y>632</y>
     </hint>
    </hints>
@@ -2496,24 +3109,8 @@
      <y>170</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1031</x>
+     <x>1018</x>
      <y>135</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtbase64_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>base64_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>147</x>
-     <y>172</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>962</x>
-     <y>596</y>
     </hint>
    </hints>
   </connection>
@@ -2524,28 +3121,12 @@
    <slot>select_file()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>585</x>
-     <y>163</y>
+     <x>190</x>
+     <y>680</y>
     </hint>
     <hint type="destinationlabel">
      <x>959</x>
      <y>388</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnbase64_calc</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>base64_calc()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>676</x>
-     <y>634</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>959</x>
-     <y>622</y>
     </hint>
    </hints>
   </connection>
@@ -2556,8 +3137,8 @@
    <slot>save_file()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>685</x>
-     <y>163</y>
+     <x>338</x>
+     <y>680</y>
     </hint>
     <hint type="destinationlabel">
      <x>884</x>
@@ -2572,76 +3153,12 @@
    <slot>hex_toggled()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>328</x>
-     <y>629</y>
+     <x>658</x>
+     <y>631</y>
     </hint>
     <hint type="destinationlabel">
      <x>246</x>
      <y>716</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txturl_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>url_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>112</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1031</x>
-     <y>352</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_2</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>url_calc()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>143</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1030</x>
-     <y>555</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtbinformat_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>binformat_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>148</x>
-     <y>163</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1031</x>
-     <y>272</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnbinformat</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>binformat_calc()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>654</x>
-     <y>627</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1032</x>
-     <y>516</y>
     </hint>
    </hints>
   </connection>
@@ -2652,28 +3169,12 @@
    <slot>hexdump_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
-     <y>143</y>
+     <x>658</x>
+     <y>678</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1030</x>
+     <x>1018</x>
      <y>512</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txthexdump_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>hexdump_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>112</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1030</x>
-     <y>205</y>
     </hint>
    </hints>
   </connection>
@@ -2684,76 +3185,28 @@
    <slot>hexdump_cmb_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
-     <y>123</y>
+     <x>317</x>
+     <y>668</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1034</x>
+     <x>1018</x>
      <y>658</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>btnzlib_calc</sender>
+   <sender>btnzlib_zlib</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>zlib_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
-     <y>143</y>
+     <x>453</x>
+     <y>678</y>
     </hint>
     <hint type="destinationlabel">
      <x>555</x>
      <y>672</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtzlib_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>zlib_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>112</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>699</x>
-     <y>674</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnvarint_calc</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>varint_calc()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>143</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1016</x>
-     <y>676</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtvarint_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>varint_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>112</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>435</x>
-     <y>671</y>
     </hint>
    </hints>
   </connection>
@@ -2764,28 +3217,12 @@
    <slot>oct_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
-     <y>143</y>
+     <x>413</x>
+     <y>678</y>
     </hint>
     <hint type="destinationlabel">
      <x>192</x>
      <y>675</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtoct_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>oct_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>112</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>247</x>
-     <y>669</y>
     </hint>
    </hints>
   </connection>
@@ -2796,28 +3233,12 @@
    <slot>protoc_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
-     <y>143</y>
+     <x>413</x>
+     <y>678</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1031</x>
+     <x>1018</x>
      <y>28</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtprotoc_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>protoc_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>112</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1032</x>
-     <y>64</y>
     </hint>
    </hints>
   </connection>
@@ -2828,28 +3249,12 @@
    <slot>asm_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
-     <y>143</y>
+     <x>530</x>
+     <y>678</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1028</x>
+     <x>1018</x>
      <y>55</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtasm_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>asm_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>112</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1029</x>
-     <y>94</y>
     </hint>
    </hints>
   </connection>
@@ -2860,28 +3265,12 @@
    <slot>crc32_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>167</y>
+     <x>508</x>
+     <y>678</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1027</x>
+     <x>1018</x>
      <y>89</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtcrc32_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>crc32_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1030</x>
-     <y>121</y>
     </hint>
    </hints>
   </connection>
@@ -2892,28 +3281,12 @@
    <slot>adler32_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>167</y>
+     <x>508</x>
+     <y>678</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1028</x>
+     <x>1018</x>
      <y>234</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtadler32_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>adler32_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1026</x>
-     <y>266</y>
     </hint>
    </hints>
   </connection>
@@ -2924,28 +3297,12 @@
    <slot>md5_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>167</y>
+     <x>508</x>
+     <y>678</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1035</x>
+     <x>1018</x>
      <y>321</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtmd5_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>md5_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1033</x>
-     <y>298</y>
     </hint>
    </hints>
   </connection>
@@ -2956,60 +3313,28 @@
    <slot>sha_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>167</y>
+     <x>619</x>
+     <y>678</y>
     </hint>
     <hint type="destinationlabel">
      <x>548</x>
-     <y>-7</y>
+     <y>0</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>txtsha_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>sha_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>575</x>
-     <y>-13</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnadler32_calc_2</sender>
+   <sender>btnadler32_encrypt</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>aes_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>674</x>
-     <y>627</y>
+     <x>291</x>
+     <y>673</y>
     </hint>
     <hint type="destinationlabel">
      <x>573</x>
-     <y>-19</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtaes_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>aes_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>548</x>
-     <y>164</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>442</x>
-     <y>-23</y>
+     <y>0</y>
     </hint>
    </hints>
   </connection>
@@ -3020,76 +3345,12 @@
    <slot>hmac_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>136</x>
-     <y>167</y>
+     <x>598</x>
+     <y>650</y>
     </hint>
     <hint type="destinationlabel">
      <x>357</x>
-     <y>-14</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txthmac_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>hmac_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>416</x>
-     <y>-6</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnrc2_calc</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>rc2_calc()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>167</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>765</x>
-     <y>-16</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>txtrc2_input</sender>
-   <signal>textChanged()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>rc2_input_change()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>136</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>604</x>
-     <y>-22</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>rdoaes_decrypt</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>aes_decrypt_check()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>404</x>
-     <y>612</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>715</x>
-     <y>-4</y>
+     <y>0</y>
     </hint>
    </hints>
   </connection>
@@ -3100,24 +3361,312 @@
    <slot>aes_mode_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>297</x>
-     <y>581</y>
+     <x>459</x>
+     <y>618</y>
     </hint>
     <hint type="destinationlabel">
      <x>254</x>
-     <y>-2</y>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnrsa_gen</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rsa_gen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>227</x>
+     <y>678</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>-20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnrsa_encrypt</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rsa_encrypt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>413</x>
+     <y>678</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>277</x>
+     <y>-5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnrsa_decrypt</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rsa_decrypt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>599</x>
+     <y>678</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>446</x>
+     <y>-20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnstr2bytes</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>binformat_calc_bytes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>496</x>
+     <y>657</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1024</x>
+     <y>467</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnadler32_decrypt</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aes_calc_decrypt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>404</x>
+     <y>646</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>465</x>
+     <y>-12</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnbase64_decode</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>base64_calc_decode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>561</x>
+     <y>656</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1022</x>
+     <y>451</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnurl_decode</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>url_calc_decode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>505</x>
+     <y>664</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1019</x>
+     <y>718</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnbytes2str</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>binformat_calc_str()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>636</x>
+     <y>656</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>997</x>
+     <y>725</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnzlib_calc_6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>asm_calc_disasm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>598</x>
+     <y>662</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>404</x>
+     <y>730</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnzlib_unzlib</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>zlib_calc_unzlib()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>581</x>
+     <y>654</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>609</x>
+     <y>731</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnvarint_calc_decode</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>varint_calc_decode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>497</x>
+     <y>649</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>702</x>
+     <y>685</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnvarint_calc_encode</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>varint_calc_encode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>258</x>
+     <y>658</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>704</x>
+     <y>639</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnurl_encode</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>url_calc_encode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>256</x>
+     <y>664</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>444</x>
+     <y>725</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnbase64_encode</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>base64_calc_encode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>421</x>
+     <y>658</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>729</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btndes_encrypt</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>des_calc_encrypt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>658</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>711</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btndes_decrypt</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>des_calc_decrypt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>390</x>
+     <y>658</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>8</x>
+     <y>702</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btndes_encrypt_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rc2_calc_encrypt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>654</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btndes_decrypt_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rc2_calc_decrypt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>401</x>
+     <y>649</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>325</x>
+     <y>-16</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
-  <slot>base64_calc()</slot>
+  <slot>base64_calc_encode()</slot>
   <slot>base64_input_change()</slot>
   <slot>select_file()</slot>
   <slot>save_file()</slot>
   <slot>hex_toggled()</slot>
   <slot>url_input_change()</slot>
-  <slot>url_calc()</slot>
+  <slot>url_calc_encode()</slot>
   <slot>reinstall_android()</slot>
   <slot>start_frida32()</slot>
   <slot>start_frida64()</slot>
@@ -3126,20 +3675,20 @@
   <slot>start_gdb32()</slot>
   <slot>start_gdb64()</slot>
   <slot>kill_debug()</slot>
-  <slot>binformat_calc()</slot>
+  <slot>binformat_calc_str()</slot>
   <slot>binformat_input_change()</slot>
   <slot>hexdump_calc()</slot>
   <slot>hexdump_input_change()</slot>
   <slot>hexdump_cmb_change()</slot>
   <slot>zlib_calc()</slot>
   <slot>zlib_input_change()</slot>
-  <slot>varint_calc()</slot>
+  <slot>varint_calc_encode()</slot>
   <slot>varint_input_change()</slot>
   <slot>oct_calc()</slot>
   <slot>oct_input_change()</slot>
   <slot>protoc_calc()</slot>
   <slot>protoc_input_change()</slot>
-  <slot>asm_calc()</slot>
+  <slot>asm_calc_encrypt()</slot>
   <slot>asm_input_change()</slot>
   <slot>crc32_calc()</slot>
   <slot>crc32_input_change()</slot>
@@ -3149,13 +3698,29 @@
   <slot>md5_input_change()</slot>
   <slot>sha_calc()</slot>
   <slot>sha_input_change()</slot>
-  <slot>aes_calc()</slot>
+  <slot>aes_calc_encrypt()</slot>
   <slot>aes_input_change()</slot>
   <slot>hmac_calc()</slot>
   <slot>hmac_input_change()</slot>
-  <slot>rc2_calc()</slot>
+  <slot>rc2_calc_encrypt()</slot>
   <slot>rc2_input_change()</slot>
   <slot>aes_decrypt_check()</slot>
   <slot>aes_mode_change()</slot>
+  <slot>rsa_gen()</slot>
+  <slot>rsa_encrypt()</slot>
+  <slot>rsa_decrypt()</slot>
+  <slot>rsa_check_prikey()</slot>
+  <slot>rsa_check_pubkey()</slot>
+  <slot>rsa_check_context()</slot>
+  <slot>binformat_calc_bytes()</slot>
+  <slot>aes_calc_decrypt()</slot>
+  <slot>rc2_calc_decrypt()</slot>
+  <slot>base64_calc_decode()</slot>
+  <slot>url_calc_decode()</slot>
+  <slot>varint_calc_decode()</slot>
+  <slot>asm_calc_disasm()</slot>
+  <slot>zlib_calc_unzlib()</slot>
+  <slot>des_calc_encrypt()</slot>
+  <slot>des_calc_decrypt()</slot>
  </slots>
 </ui>

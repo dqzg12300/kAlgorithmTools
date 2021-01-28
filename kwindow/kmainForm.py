@@ -1,8 +1,10 @@
 import datetime
 import sys
+
+from Crypto.Cipher import ARC2
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 
-from common import Util, AsmUtil, Enums, AesUtil
+from common import Util, AsmUtil, Enums, CryptoUtil
 from kwindow.kmain import Ui_MainWindow
 import urllib.parse
 import platform
@@ -26,19 +28,18 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         return self.platform=="Windows"
 
     #base64的计算按钮事件
-    def base64_calc(self):
+    def base64_calc_encode(self):
         base64_input = self.txtbase64_input.toPlainText()
-        res=Util.newBase64(self.txtbase64_key.text(),base64_input,self.rdobase64_encode.isChecked())
+        res=Util.newBase64(self.txtbase64_key.text(),base64_input,True)
         self.txtbase64_output.setPlainText(res)
-        if self.chkIsHex.isChecked():
+        if self.chkHexOutput.isChecked():
             self.hex_toggled()
 
-    #base64的输入框内容修改事件
-    def base64_input_change(self):
+    def base64_calc_decode(self):
         base64_input = self.txtbase64_input.toPlainText()
-        res = Util.newBase64(self.txtbase64_key.text(),base64_input, self.rdobase64_encode.isChecked())
+        res = Util.newBase64(self.txtbase64_key.text(), base64_input, False)
         self.txtbase64_output.setPlainText(res)
-        if self.chkIsHex.isChecked():
+        if self.chkHexOutput.isChecked():
             self.hex_toggled()
 
     #base64的选择文件进行编解码
@@ -77,7 +78,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
     #base64结果是否显示为16进制
     def hex_toggled(self):
         output= self.txtbase64_output.toPlainText()
-        if self.chkIsHex.isChecked():
+        if self.chkHexOutput.isChecked():
             outres = ""
             for mych in output:
                 outres += "%02x " % ord(mych)
@@ -97,16 +98,13 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.txtLog.appendPlainText(datestr+logstr)
 
     #url编解码
-    def url_calc(self):
+    def url_calc_encode(self):
         input=self.txturl_input.toPlainText()
-        if self.rdourl_encode.isChecked():
-            self.txturl_output.setPlainText(urllib.parse.quote(input))
-        else:
-            self.txturl_output.setPlainText(urllib.parse.unquote(input))
+        self.txturl_output.setPlainText(urllib.parse.quote(input))
 
-    #url输入框修改的事件
-    def url_input_change(self):
-        self.url_calc()
+    def url_calc_decode(self):
+        input = self.txturl_input.toPlainText()
+        self.txturl_output.setPlainText(urllib.parse.unquote(input))
 
     #安装环境
     def reinstall_android(self):
@@ -150,25 +148,26 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         Util.execScript("kill_debug", self.platform)
 
     #字符串转16进制和字节转字符串
-    def binformat_calc(self):
-        mystr=self.txtbinformat_input.toPlainText()
-        if self.rdostr2hex.isChecked():
-            try:
-                res = Util.str2hex(mystr)
-                self.txtbinformat_output.setPlainText(Util.b2hexSpace(res))
-                cnt = len(res)
-                self.lbbinformat_cnt.setText("<span style=' color:#ff0000;'>[{}]</span>".format(cnt))
-            except Exception as ex:
-                self.appendLog("转换异常:"+str(ex))
-                return
-        else:
-            try:
-                buff=Util.StrToHexSplit(mystr)
-                res = Util.hex2str(buff)
-                self.txtbinformat_output.setPlainText(res)
-            except Exception as ex:
-                self.appendLog("转换异常:"+str(ex))
-                return
+    def binformat_calc_bytes(self):
+        inputdata=self.txtbinformat_input.toPlainText()
+        try:
+            res = Util.str2hex(inputdata)
+            self.txtbinformat_output.setPlainText(Util.b2hexSpace(res))
+            cnt = len(res)
+            self.lbbinformat_cnt.setText("<span style=' color:#ff0000;'>[{}]</span>".format(cnt))
+        except Exception as ex:
+            self.appendLog("转换异常:" + str(ex))
+            return
+
+    def binformat_calc_str(self):
+        inputdata = self.txtbinformat_input.toPlainText()
+        try:
+            buff = Util.StrToHexSplit(inputdata)
+            res = Util.hex2str(buff)
+            self.txtbinformat_output.setPlainText(res)
+        except Exception as ex:
+            self.appendLog("转换异常:" + str(ex))
+            return
 
     def binformat_input_change(self):
         self.binformat_calc()
@@ -197,21 +196,26 @@ class kmainForm(QMainWindow,Ui_MainWindow):
 
     #zlib的加密和解密
     def zlib_calc(self):
-        inputdata=self.txtzlib_input.toPlainText()
+        inputdata=Util.getBuff(self.txtzlib_input.toPlainText(),self.chkzlib_ishex.isChecked())
         try:
-            if self.rdozlib.isChecked():
-                res=Util.zlib_compress(inputdata,self.chkzlib_ishex.isChecked())
-            else:
-                res = Util.zlib_decompress(inputdata)
-        except:
+            res=Util.zlib_compress(inputdata)
+            self.txtzlib_output.setPlainText(res)
+        except Exception as ex:
+            self.appendLog(str(ex))
             self.txtzlib_output.setPlainText("")
             return
-        self.txtzlib_output.setPlainText(res)
 
-    def zlib_input_change(self):
-        self.zlib_calc()
+    def zlib_calc_unzlib(self):
+        inputdata =Util.getBuff(self.txtzlib_input.toPlainText(),True)
+        try:
+            res = Util.zlib_decompress(inputdata)
+            self.txtzlib_output.setPlainText(res)
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txtzlib_output.setPlainText("")
+            return
 
-    def varint_calc(self):
+    def varint_calc_encode(self):
         inputdata=self.txtvarint_input.toPlainText()
         try:
             if "0x" in inputdata:
@@ -220,10 +224,6 @@ class kmainForm(QMainWindow,Ui_MainWindow):
                 res = Util.varint_encode(inputNum)
                 self.txtvarint_output.setPlainText(Util.b2hexSpace(res))
                 return
-            if " " in inputdata:
-                buff=Util.StrToHexSplit(inputdata)
-                res = Util.varint_decode(buff)
-                self.txtvarint_output.setPlainText(str(res))
             else:
                 inputNum = int(inputdata, 10)
                 res = Util.varint_encode(inputNum)
@@ -231,8 +231,17 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         except:
             self.txtvarint_output.setPlainText("")
 
-    def varint_input_change(self):
-        self.varint_calc()
+    def varint_calc_decode(self):
+        inputdata = self.txtvarint_input.toPlainText()
+        if len(inputdata)<=0:
+            self.appendLog("varint input为空")
+            return
+        if " " not in inputdata:
+            inputdata=Util.ByteToHexStr(inputdata)
+        buff = Util.StrToHexSplit(inputdata)
+        res = Util.varint_decode(buff)
+        self.txtvarint_output.setPlainText(str(res))
+
 
     #八进制转中文字符(Octal)  ####\345\276\256\344\277\241
     def oct_calc(self):
@@ -273,19 +282,25 @@ class kmainForm(QMainWindow,Ui_MainWindow):
     def asm_calc(self):
         inputdata = self.txtasm_input.toPlainText()
         try:
-            if self.rdoasm.isChecked():
-                res=AsmUtil.asm(self.cmbasm.currentIndex(),inputdata)
-                self.txtasm_output.setPlainText(res)
-            else:
-                buff=Util.StrToHexSplit(inputdata)
-                res=AsmUtil.disasm(self.cmbasm.currentIndex(),buff)
-                self.txtasm_output.setPlainText(res)
+            outdata=""
+            for data in inputdata.split("\n"):
+                if len(data)<=0:
+                    continue
+                outdata+=AsmUtil.asm(self.cmbasm.currentIndex(),data)+"\n"
+            self.txtasm_output.setPlainText(outdata)
         except Exception as ex:
-            # self.appendLog("解析异常.请检查数据和模式是否正确."+str(ex))
+            self.appendLog("解析异常.请检查数据和模式是否正确."+str(ex))
             self.txtasm_output.setPlainText("")
 
-    def asm_input_change(self):
-        self.asm_calc()
+    def asm_calc_disasm(self):
+        inputdata = self.txtasm_input.toPlainText()
+        try:
+            buff=Util.StrToHexSplit(inputdata)
+            res=AsmUtil.disasm(self.cmbasm.currentIndex(),buff)
+            self.txtasm_output.setPlainText(res)
+        except Exception as ex:
+            self.appendLog("解析异常.请检查数据和模式是否正确."+str(ex))
+            self.txtasm_output.setPlainText("")
 
     def crc32_calc(self):
         buff=Util.getBuff(self.txtcrc32_input.toPlainText(),self.chkcrc32_ishex.isChecked())
@@ -374,6 +389,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
     def hmac_input_change(self):
         self.hmac_calc()
 
+    #aes加密
     def aes_calc(self):
         buff=Util.getBuff(self.txtaes_input.toPlainText(),self.chkaes_ishex.isChecked())
         if len(buff)<=0:
@@ -383,55 +399,105 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         buffiv=Util.getBuff(self.txtaes_iv.text(),self.chkaes_iv_ishex.isChecked())
         try:
             if self.cmbaes_mode.currentIndex()==Enums.AES_MODE.CBC.value:
-                if self.rdoaes_encrypt.isChecked():
-                    res=AesUtil.cbc_encrypt(buffkey,buffiv,buff)
-                else:
-                    res = AesUtil.cbc_decrypt(buffkey, buffiv, buff)
+                res=CryptoUtil.aes_cbc_encrypt(buffkey,buffiv,buff)
                 self.txtaes_output.setPlainText(Util.b2hex(res))
             elif self.cmbaes_mode.currentIndex()==Enums.AES_MODE.ECB.value:
-                if self.rdoaes_encrypt.isChecked():
-                    res=AesUtil.ecb_encrypt(buffkey,buff)
-                else:
-                    res = AesUtil.ecb_decrypt(buffkey, buff)
+                res=CryptoUtil.aes_ecb_encrypt(buffkey,buff)
                 self.txtaes_output.setPlainText(Util.b2hex(res))
             elif self.cmbaes_mode.currentIndex()==Enums.AES_MODE.GCM.value:
                 buff_nonce=Util.getBuff(self.txtaes_nonce.text(),self.chkaes_nonce_ishex.isChecked())
-                if self.rdoaes_encrypt.isChecked():
-                    res,tag=AesUtil.gcm_encrypt(buffkey,buffiv,buff_nonce,buff)
-                    self.txtaes_tag.setText(Util.b2hex(tag))
-                else:
-                    bufftag = Util.getBuff(self.txtaes_tag.text(), self.chkaes_tag_ishex.isChecked())
-                    res = AesUtil.gcm_decrypt(buffkey,buffiv,buff_nonce, buff,bufftag)
+                res,tag=CryptoUtil.aes_gcm_encrypt(buffkey,buffiv,buff_nonce,buff)
+                self.txtaes_tag.setText(Util.b2hex(tag))
                 self.txtaes_output.setPlainText(Util.b2hex(res))
         except Exception as ex:
             print(ex)
             self.txtaes_output.setPlainText("")
 
+    def aes_calc_decrypt(self):
+        buff = Util.getBuff(self.txtaes_input.toPlainText(), True)
+        if len(buff) <= 0:
+            self.appendLog("aes input未输入正确数据")
+            return
+        buffkey = Util.getBuff(self.txtaes_key.text(), self.chkaes_key_ishex.isChecked())
+        buffiv = Util.getBuff(self.txtaes_iv.text(), self.chkaes_iv_ishex.isChecked())
+        try:
+            if self.cmbaes_mode.currentIndex() == Enums.AES_MODE.CBC.value:
+                res = CryptoUtil.aes_cbc_decrypt(buffkey, buffiv, buff)
+                self.txtaes_output.setPlainText(Util.b2hex(res))
+            elif self.cmbaes_mode.currentIndex() == Enums.AES_MODE.ECB.value:
+                res = CryptoUtil.aes_ecb_decrypt(buffkey, buff)
+                self.txtaes_output.setPlainText(Util.b2hex(res))
+            elif self.cmbaes_mode.currentIndex() == Enums.AES_MODE.GCM.value:
+                buff_nonce = Util.getBuff(self.txtaes_nonce.text(), self.chkaes_nonce_ishex.isChecked())
+                bufftag = Util.getBuff(self.txtaes_tag.text(), self.chkaes_tag_ishex.isChecked())
+                res = CryptoUtil.aes_gcm_decrypt(buffkey, buffiv, buff_nonce, buff, bufftag)
+                self.txtaes_output.setPlainText(Util.b2hex(res))
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txtaes_output.setPlainText("")
 
-
-    def aes_decrypt_check(self):
-        if self.cmbaes_mode.currentIndex()==Enums.AES_MODE.GCM.value:
+    def aes_mode_change(self):
+        if self.cmbaes_mode.currentIndex() == Enums.AES_MODE.GCM.value:
             self.txtaes_tag.setEnabled(True)
-            self.txtaes_tag.setReadOnly(True)
             self.txtaes_nonce.setEnabled(True)
-            if self.rdoaes_decrypt.isChecked():
-                self.txtaes_tag.setReadOnly(False)
         else:
             self.txtaes_tag.setEnabled(False)
             self.txtaes_nonce.setEnabled(False)
 
-    def aes_mode_change(self):
-        self.aes_decrypt_check()
-
     def aes_input_change(self):
         self.aes_calc()
 
-    def rc2_calc(self):
+    def rc2_calc_encrypt(self):
+        inputdata=Util.getBuff(self.txtrc2_input.toPlainText(),self.chkrc2_ishex.isChecked())
+        if len(inputdata)<=0:
+            self.appendLog("rc2 input为空")
+            return
+        try:
+            buff_key=Util.getBuff(self.txtrc2_key.text(),self.chkrc2_key_ishex.isChecked())
+            buff_iv = Util.getBuff(self.txtrc2_iv.text(), self.chkrc2_iv_ishex.isChecked())
+            mode = ARC2.MODE_CBC
+            if self.cmbrc2_mode.currentIndex()==1:
+                res=CryptoUtil.rc2_ebc_encrypt(buff_key,inputdata)
+            else:
+                res = CryptoUtil.rc2_cbc_encrypt(buff_key,buff_iv,inputdata)
+            self.txtrc2_output.setPlainText(Util.b2hex(res))
+        except Exception as ex:
+            self.appendLog(str(ex))
+
+
+    def rc2_calc_decrypt(self):
+        inputdata = Util.getBuff(self.txtrc2_input.toPlainText(), self.chkrc2_ishex.isChecked())
+        if len(inputdata) <= 0:
+            self.appendLog("rc2 input为空")
+            return
+        try:
+            buff_key = Util.getBuff(self.txtrc2_key.text(), True)
+            buff_iv = Util.getBuff(self.txtrc2_iv.text(), self.chkrc2_iv_ishex.isChecked())
+            if self.cmbrc2_mode.currentIndex() == 1:
+                res = CryptoUtil.rc2_ebc_decrypt(buff_key, inputdata)
+            else:
+                res = CryptoUtil.rc2_cbc_decrypt(buff_key, buff_iv, inputdata)
+            self.txtrc2_output.setPlainText(res)
+        except Exception as ex:
+            self.appendLog(str(ex))
+
+    def rsa_gen(self):
+        pubkey,prikey=CryptoUtil.generateKey()
+        self.txtrsa_pubkey.setPlainText(pubkey.decode("utf-8"))
+        self.txtrsa_prikey.setPlainText(prikey.decode("utf-8"))
+
+    def rsa_encrypt(self):
+        res= CryptoUtil.rsa_encrypt(self.txtrsa_pubkey.toPlainText(),self.txtrsa_input.toPlainText())
+        self.txtrsa_output.setPlainText(res.decode("utf-8"))
+    def rsa_decrypt(self):
+        res=CryptoUtil.rsa_decrypt(self.txtrsa_prikey.toPlainText(),self.txtrsa_input.toPlainText())
+        self.txtrsa_output.setPlainText(res.decode("utf-8"))
+
+    def des_calc_encrypt(self):
         pass
 
-    def rc2_input_change(self):
-        self.rc2_calc()
-
+    def des_calc_decrypt(self):
+        pass
 
 if __name__=="__main__":
     app=QApplication(sys.argv)

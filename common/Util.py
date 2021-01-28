@@ -256,18 +256,13 @@ def hexSplit(buff,cmbidx):
         outdata+="\n"
     return outdata
 
-def zlib_compress(zlib_data,ishex):
-    if ishex:
-        data = StrToHexSplit(zlib_data)
-    else:
-        data = zlib_data.encode("utf-8")
-    outData = zlib.compress(data)
+def zlib_compress(zlib_data):
+    outData = zlib.compress(zlib_data)
     return b2hexSpace(outData)
 
 
 def zlib_decompress(zlib_data):
-    data = StrToHexSplit(zlib_data)
-    outData = zlib.decompress(data)
+    outData = zlib.decompress(zlib_data)
     return b2hexSpace(outData)
 
 def varint_encode(number):
