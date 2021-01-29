@@ -3,10 +3,10 @@
 
 运行kwindow/kmainForm.py启动。
 
-![image-20210129223318402](/Users/king/git_src/kAlgorithmTools/resource/image-20210129223318402.png)
+![image-20210129223318402](./resource/image-20210129223318402.png)
 
-![image-20210129223348298](/Users/king/git_src/kAlgorithmTools/resource/image-20210129223348298.png)
+![image-20210129223348298](./resource/image-20210129223348298.png)
 
-![image-20210129223357692](/Users/king/git_src/kAlgorithmTools/resource/image-20210129223357692.png)
+![image-20210129223357692](./resource/image-20210129223357692.png)
 
-![image-20210129223406317](/Users/king/git_src/kAlgorithmTools/resource/image-20210129223406317.png)
+![image-20210129223406317](./resource/image-20210129223406317.png)
