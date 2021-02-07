@@ -29,34 +29,45 @@ class kmainForm(QMainWindow,Ui_MainWindow):
 
     #base64的计算按钮事件
     def base64_calc_encode(self):
-        base64_input = self.txtbase64_input.toPlainText()
-        res=Util.newBase64(self.txtbase64_key.text(),base64_input,True)
-        self.txtbase64_output.setPlainText(res)
-        if self.chkHexOutput.isChecked():
-            self.hex_toggled()
+        try:
+            base64_input = self.txtbase64_input.toPlainText()
+            res=Util.newBase64(self.txtbase64_key.text(),base64_input,True)
+            self.txtbase64_output.setPlainText(res)
+            if self.chkHexOutput.isChecked():
+                self.hex_toggled()
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txtbase64_output.setPlainText("")
 
     def base64_calc_decode(self):
-        base64_input = self.txtbase64_input.toPlainText()
-        res = Util.newBase64(self.txtbase64_key.text(), base64_input, False)
-        self.txtbase64_output.setPlainText(res)
-        if self.chkHexOutput.isChecked():
-            self.hex_toggled()
+        try:
+            base64_input = self.txtbase64_input.toPlainText()
+            res = Util.newBase64(self.txtbase64_key.text(), base64_input, False)
+            self.txtbase64_output.setPlainText(res)
+            if self.chkHexOutput.isChecked():
+                self.hex_toggled()
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txtbase64_output.setPlainText("")
 
     #base64的选择文件进行编解码
     def select_file(self):
         filename= QFileDialog.getOpenFileName()[0]
         if len(filename)<=0:
             return
-        self.txtbase64file.setText(filename)
-        with open(filename,"rb") as myfile:
-            mydata= myfile.read()
-            res = Util.newBase64(self.txtbase64_key.text(),mydata, self.rdobase64_encode.isChecked())
-            if self.chkIsHex.isChecked():
-                outres = ""
-                for mych in res:
-                    outres += "%02x " % mych
-                res = outres
-            self.txtbase64_output.setPlainText(res)
+        try:
+            self.txtbase64file.setText(filename)
+            with open(filename,"rb") as myfile:
+                mydata= myfile.read()
+                res = Util.newBase64(self.txtbase64_key.text(),mydata, self.rdobase64_encode.isChecked())
+                if self.chkIsHex.isChecked():
+                    outres = ""
+                    for mych in res:
+                        outres += "%02x " % mych
+                    res = outres
+                self.txtbase64_output.setPlainText(res)
+        except Exception as ex:
+            self.appendLog(str(ex))
 
     #base64的保存输出结果到文件
     def save_file(self):
@@ -68,29 +79,34 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         if len(savefile)<=0:
             self.appendLog("取消选择文件")
             return
-
-        res=Util.StrToHexSplit(output)
-        #开始保存
-        with open(savefile,"wb") as myfile:
-            myfile.write(res)
-            self.appendLog("保存成功到:"+savefile)
+        try:
+            res=Util.StrToHexSplit(output)
+            #开始保存
+            with open(savefile,"wb") as myfile:
+                myfile.write(res)
+                self.appendLog("保存成功到:"+savefile)
+        except Exception as ex:
+            self.appendLog(str(ex))
 
     #base64结果是否显示为16进制
     def hex_toggled(self):
         output= self.txtbase64_output.toPlainText()
-        if self.chkHexOutput.isChecked():
-            outres = ""
-            for mych in output:
-                outres += "%02x " % ord(mych)
-            output = outres
-        else:
-            outres = ""
-            for mych in output.split(" "):
-                if len(mych)<=0:
-                    continue
-                outres+=chr(int(mych,16))
-            output = outres
-        self.txtbase64_output.setPlainText(output)
+        try:
+            if self.chkHexOutput.isChecked():
+                outres = ""
+                for mych in output:
+                    outres += "%02x " % ord(mych)
+                output = outres
+            else:
+                outres = ""
+                for mych in output.split(" "):
+                    if len(mych)<=0:
+                        continue
+                    outres+=chr(int(mych,16))
+                output = outres
+            self.txtbase64_output.setPlainText(output)
+        except Exception as ex:
+            self.appendLog(str(ex))
 
     #打印输出日志
     def appendLog(self,logstr):
@@ -100,11 +116,19 @@ class kmainForm(QMainWindow,Ui_MainWindow):
     #url编解码
     def url_calc_encode(self):
         input=self.txturl_input.toPlainText()
-        self.txturl_output.setPlainText(urllib.parse.quote(input))
+        try:
+            self.txturl_output.setPlainText(urllib.parse.quote(input))
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txturl_output.setPlainText("")
 
     def url_calc_decode(self):
         input = self.txturl_input.toPlainText()
-        self.txturl_output.setPlainText(urllib.parse.unquote(input))
+        try:
+            self.txturl_output.setPlainText(urllib.parse.unquote(input))
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txturl_output.setPlainText("")
 
     #安装环境
     def reinstall_android(self):
@@ -157,7 +181,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             self.lbbinformat_cnt.setText("<span style=' color:#ff0000;'>[{}]</span>".format(cnt))
         except Exception as ex:
             self.appendLog("转换异常:" + str(ex))
-            return
+            self.txtbinformat_output.setPlainText("")
 
     def binformat_calc_str(self):
         inputdata = self.txtbinformat_input.toPlainText()
@@ -167,10 +191,8 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             self.txtbinformat_output.setPlainText(res)
         except Exception as ex:
             self.appendLog("转换异常:" + str(ex))
-            return
+            self.txtbinformat_output.setPlainText("")
 
-    def binformat_input_change(self):
-        self.binformat_calc()
 
     def hexdump_calc(self):
         inputdata=self.txthexdump_input.toPlainText()
@@ -185,11 +207,9 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             if cmbidx>=1 and cmbidx<=2:
                 res=Util.hexSplit(self.txthexdump_output.toPlainText(),cmbidx)
                 self.txthexdump_output.setPlainText(res)
-        except:
+        except Exception as ex:
+            self.appendLog("转换异常:" + str(ex))
             self.txthexdump_output.setPlainText("")
-
-    def hexdump_input_change(self):
-        self.hexdump_calc()
 
     def hexdump_cmb_change(self):
         self.hexdump_calc()
@@ -203,7 +223,6 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         except Exception as ex:
             self.appendLog(str(ex))
             self.txtzlib_output.setPlainText("")
-            return
 
     def zlib_calc_unzlib(self):
         inputdata =Util.getBuff(self.txtzlib_input.toPlainText(),True)
@@ -213,7 +232,6 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         except Exception as ex:
             self.appendLog(str(ex))
             self.txtzlib_output.setPlainText("")
-            return
 
     def varint_calc_encode(self):
         inputdata=self.txtvarint_input.toPlainText()
@@ -258,11 +276,9 @@ class kmainForm(QMainWindow,Ui_MainWindow):
                 mybuff += bytes([ord(mychar)])
             res = mybuff.decode(encoding="utf-8")
             self.txtoct_output.setPlainText(res)
-        except:
+        except Exception as ex:
+            self.appendLog(str(ex))
             self.txtoct_output.setText('')
-
-    def oct_input_change(self):
-        self.oct_calc()
 
     def protoc_calc(self):
         inputdata=self.txtprotoc_input.toPlainText()
@@ -281,7 +297,8 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             else:
                 res = Util.execProcess("..\exec\linux\protoc", "--decode_raw", data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
-        except:
+        except Exception as ex:
+            self.appendLog(str(ex))
             self.txtprotoc_output.setPlainText("")
 
     def protoc_input_change(self):
@@ -318,11 +335,10 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         try:
             res=zlib.crc32(buff)
             self.txtcrc32_output.setPlainText(str(res))
-        except:
+        except Exception as ex:
+            self.appendLog(str(ex))
             self.txtcrc32_output.setPlainText("")
 
-    def crc32_input_change(self):
-        self.crc32_calc()
 
     def adler32_calc(self):
         buff = Util.getBuff(self.txtadler32_input.toPlainText(),self.chkadler32_ishex.isChecked())
@@ -332,24 +348,23 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         try:
             res = zlib.adler32(buff)
             self.txtadler32_output.setPlainText(str(res))
-        except:
+        except Exception as ex:
+            self.appendLog(str(ex))
             self.txtadler32_output.setPlainText("")
-
-    def adler32_input_change(self):
-        self.adler32_calc()
 
     def md5_calc(self):
         buff =Util.getBuff(self.txtmd5_input.toPlainText(),self.chkmd5_ishex.isChecked())
         if len(buff) <= 0:
             self.appendLog("md5 input未输入正确数据")
             return
-        m= hashlib.md5()
-        m.update(buff)
-        res = m.hexdigest()
-        self.txtmd5_output.setPlainText(res)
-
-    def md5_input_change(self):
-        self.md5_calc()
+        try:
+            m= hashlib.md5()
+            m.update(buff)
+            res = m.hexdigest()
+            self.txtmd5_output.setPlainText(res)
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txtmd5_output.setPlainText("")
 
     def sha_calc(self):
         buff =Util.getBuff(self.txtsha_input.toPlainText(),self.chksha_ishex.isChecked())
@@ -365,12 +380,14 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             m = hashlib.sha512()
         else:
             m = hashlib.sha256()
-        m.update(buff)
-        res = m.hexdigest()
-        self.txtsha_output.setPlainText(res)
+        try:
+            m.update(buff)
+            res = m.hexdigest()
+            self.txtsha_output.setPlainText(res)
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txtsha_output.setPlainText("")
 
-    def sha_input_change(self):
-        self.sha_calc()
 
     def hmac_calc(self):
         buff = Util.getBuff(self.txthmac_input.toPlainText(),self.chkhmac_ishex.isChecked())
@@ -391,11 +408,12 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             m = hashlib.sha512
         else:
             m = hashlib.md5
-        h = hmac.new(buff_key,buff,digestmod=m)
-        self.txthmac_output.setPlainText(h.hexdigest())
-
-    def hmac_input_change(self):
-        self.hmac_calc()
+        try:
+            h = hmac.new(buff_key,buff,digestmod=m)
+            self.txthmac_output.setPlainText(h.hexdigest())
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txthmac_output.setPlainText("")
 
     #aes加密
     def aes_calc(self):
@@ -418,7 +436,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
                 self.txtaes_tag.setText(Util.b2hex(tag))
                 self.txtaes_output.setPlainText(Util.b2hex(res))
         except Exception as ex:
-            print(ex)
+            self.appendLog(str(ex))
             self.txtaes_output.setPlainText("")
 
     def aes_calc_decrypt(self):
@@ -452,8 +470,6 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             self.txtaes_tag.setEnabled(False)
             self.txtaes_nonce.setEnabled(False)
 
-    def aes_input_change(self):
-        self.aes_calc()
 
     def rc2_calc_encrypt(self):
         inputdata=Util.getBuff(self.txtrc2_input.toPlainText(),self.chkrc2_ishex.isChecked())
@@ -471,6 +487,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             self.txtrc2_output.setPlainText(Util.b2hex(res))
         except Exception as ex:
             self.appendLog(str(ex))
+            self.txtrc2_output.setPlainText("")
 
 
     def rc2_calc_decrypt(self):
@@ -488,6 +505,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             self.txtrc2_output.setPlainText(res)
         except Exception as ex:
             self.appendLog(str(ex))
+            self.txtrc2_output.setPlainText("")
 
     def rsa_gen(self):
         pubkey,prikey=CryptoUtil.generateKey()
