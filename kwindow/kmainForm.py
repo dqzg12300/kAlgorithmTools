@@ -228,7 +228,8 @@ class kmainForm(QMainWindow,Ui_MainWindow):
                 inputNum = int(inputdata, 10)
                 res = Util.varint_encode(inputNum)
                 self.txtvarint_output.setPlainText(Util.b2hexSpace(res))
-        except:
+        except Exception as ex:
+            self.appendLog(str(ex))
             self.txtvarint_output.setPlainText("")
 
     def varint_calc_decode(self):
@@ -236,11 +237,15 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         if len(inputdata)<=0:
             self.appendLog("varint input为空")
             return
-        if " " not in inputdata:
-            inputdata=Util.ByteToHexStr(inputdata)
-        buff = Util.StrToHexSplit(inputdata)
-        res = Util.varint_decode(buff)
-        self.txtvarint_output.setPlainText(str(res))
+        try:
+            if " " not in inputdata:
+                inputdata=Util.ByteToHexStr(inputdata)
+            buff = Util.StrToHexSplit(inputdata)
+            res = Util.varint_decode(buff)
+            self.txtvarint_output.setPlainText(str(res))
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txtvarint_output.setPlainText("")
 
 
     #八进制转中文字符(Octal)  ####\345\276\256\344\277\241
@@ -264,9 +269,12 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         try:
             if "  " in inputdata:
                 data=Util.HexdumpReplaceLeftRight(inputdata)
+                data = Util.StrToHexSplit(data)
             elif " " not in inputdata:
                 data = Util.ByteToHexStr(inputdata)
-            data=Util.StrToHexSplit(data)
+                data=Util.StrToHexSplit(data)
+            else:
+                data = Util.StrToHexSplit(inputdata)
             if self.iswin():
                 res=Util.execProcess("../exec/win/protoc.exe","--decode_raw",data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))

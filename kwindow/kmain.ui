@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -31,7 +31,7 @@
            <string/>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_16">
            <attribute name="title">
@@ -777,8 +777,14 @@
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
          <widget class="QTabWidget" name="tabWidget_3">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>170</height>
+           </size>
+          </property>
           <property name="currentIndex">
-           <number>7</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_9">
            <attribute name="title">
@@ -1414,10 +1420,16 @@
            <layout class="QGridLayout" name="gridLayout_58">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_33">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>160</height>
+                <height>170</height>
                </size>
               </property>
               <property name="title">
@@ -1708,10 +1720,16 @@
            <layout class="QGridLayout" name="gridLayout_80">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_45">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>160</height>
+                <height>170</height>
                </size>
               </property>
               <property name="title">
@@ -1925,6 +1943,12 @@
            <layout class="QGridLayout" name="gridLayout_70">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_39">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -2334,6 +2358,18 @@
            <layout class="QGridLayout" name="gridLayout_83">
             <item row="0" column="0">
              <widget class="QGroupBox" name="groupBox_8">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>170</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>170</height>
+               </size>
+              </property>
               <property name="title">
                <string>input</string>
               </property>
