@@ -53,6 +53,11 @@ def newBase64(bkey,input,isencode):
                 for mych in res:
                     outdata+="%02x"%mych+" "
                 return outdata
+            elif "codec can't decode" in str(ex):
+                outdata = ""
+                for mych in res:
+                    outdata += "%02x" % mych + " "
+                return outdata
             return ""
     return res
 
@@ -228,7 +233,7 @@ def HexdumpReplaceLeftRight(bindataStr):
 #整理16进制字符串
 def ByteToHexStr(mystr):
     decodeData = ""
-    sublist=mystr.split(' ')
+    sublist= re.split(r'[\r\n ]',mystr)
     if len(sublist)>1:
         for idx,buf in enumerate(sublist):
             decodeData+=buf+" "
@@ -253,7 +258,11 @@ def hexSplit(buff,cmbidx):
                 outdata+=bdata+","
             elif cmbidx==2:
                 outdata+="0x"+bdata+","
+            else:
+                outdata += bdata + " "
         outdata+="\n"
+    if cmbidx==3:
+        outdata=outdata.replace("\n","").replace(",","").replace(" ","")
     return outdata
 
 def zlib_compress(zlib_data):

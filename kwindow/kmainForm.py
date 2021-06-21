@@ -29,8 +29,8 @@ class kmainForm(QMainWindow,Ui_MainWindow):
 
     #base64的计算按钮事件
     def base64_calc_encode(self):
-        base64_input = self.txtbase64_input.toPlainText()
-        res=Util.newBase64(self.txtbase64_key.text(),base64_input,True)
+        inputdata=Util.getBuff(self.txtbase64_input.toPlainText(),self.chkHexInput.isChecked())
+        res=Util.newBase64(self.txtbase64_key.text(),inputdata,True)
         self.txtbase64_output.setPlainText(res)
         if self.chkHexOutput.isChecked():
             self.hex_toggled()
@@ -182,7 +182,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
                 res=Util.ByteToHexStr(inputdata)
                 self.txthexdump_output.setPlainText(res)
             cmbidx=self.cmbhexdump.currentIndex()
-            if cmbidx>=1 and cmbidx<=2:
+            if cmbidx>=1 and cmbidx<=3:
                 res=Util.hexSplit(self.txthexdump_output.toPlainText(),cmbidx)
                 self.txthexdump_output.setPlainText(res)
         except:
