@@ -1,10 +1,9 @@
 import datetime
 import sys
 
-from Crypto.Cipher import ARC2
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
 
-from common import Util, AsmUtil, Enums, CryptoUtil
+from Utils import Util, AsmUtil, Enums, CryptoUtil
 from kwindow.kmain import Ui_MainWindow
 import urllib.parse
 import platform
@@ -475,7 +474,6 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         try:
             buff_key=Util.getBuff(self.txtrc2_key.text(),self.chkrc2_key_ishex.isChecked())
             buff_iv = Util.getBuff(self.txtrc2_iv.text(), self.chkrc2_iv_ishex.isChecked())
-            mode = ARC2.MODE_CBC
             if self.cmbrc2_mode.currentIndex()==1:
                 res=CryptoUtil.rc2_ebc_encrypt(buff_key,inputdata)
             else:
