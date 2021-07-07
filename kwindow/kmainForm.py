@@ -514,10 +514,41 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.txtrsa_output.setPlainText(res.decode("utf-8"))
 
     def des_calc_encrypt(self):
-        pass
+        buff = Util.getBuff(self.txtdes_input.toPlainText(), self.chkdes_ishex.isChecked())
+        if len(buff) <= 0:
+            self.appendLog("des input未输入正确数据")
+            return
+        buffkey = Util.getBuff(self.txtdes_key.text(), self.chkdes_key_ishex.isChecked())
+        buffiv = Util.getBuff(self.txtdes_iv.text(), self.chkdes_iv_ishex.isChecked())
+        try:
+            if self.cmbdes_mode.currentIndex() == Enums.DES_MODE.CBC.value:
+                res = CryptoUtil.des_cbc_encrypt(buffkey, buffiv, buff)
+                self.txtdes_output.setPlainText(Util.b2hex(res))
+            elif self.cmbdes_mode.currentIndex() == Enums.DES_MODE.ECB.value:
+                res = CryptoUtil.des_ecb_encrypt(buffkey, buff)
+                self.txtdes_output.setPlainText(Util.b2hex(res))
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txtdes_output.setPlainText("")
 
     def des_calc_decrypt(self):
-        pass
+        buff = Util.getBuff(self.txtdes_input.toPlainText(), True)
+        if len(buff) <= 0:
+            self.appendLog("des input未输入正确数据")
+            return
+        buffkey = Util.getBuff(self.txtdes_key.text(), self.chkdes_key_ishex.isChecked())
+        buffiv = Util.getBuff(self.txtdes_iv.text(), self.chkdes_iv_ishex.isChecked())
+        try:
+            if self.cmbdes_mode.currentIndex() == Enums.DES_MODE.CBC.value:
+                res = CryptoUtil.des_cbc_decrypt(buffkey, buffiv, buff)
+                self.txtdes_output.setPlainText(Util.b2hex(res))
+            elif self.cmbdes_mode.currentIndex() == Enums.DES_MODE.ECB.value:
+                res = CryptoUtil.des_ecb_decrypt(buffkey, buff)
+                self.txtdes_output.setPlainText(Util.b2hex(res))
+        except Exception as ex:
+            self.appendLog(str(ex))
+            self.txtdes_output.setPlainText("")
+
 
 if __name__=="__main__":
     app=QApplication(sys.argv)

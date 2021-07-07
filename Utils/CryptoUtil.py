@@ -1,6 +1,6 @@
 import base64
 
-from Crypto.Cipher import AES
+from Crypto.Cipher import AES, DES
 from Crypto import Random
 from Crypto.Hash import SHA
 from Crypto.PublicKey import RSA
@@ -61,6 +61,35 @@ def aes_gcm_decrypt(key,iv,nonce,data,tag):
         cipher = AES.new(key, AES.MODE_GCM,iv, nonce=nonce)
     plaintext = cipher.decrypt_and_verify(data, tag)
     return plaintext
+
+
+
+# 加密函数
+def des_cbc_encrypt(key,iv,data):
+    mode = DES.MODE_CBC
+    cryptos = DES.new(key, mode, iv)
+    cipher_text = cryptos.encrypt(rc2pad(data))
+    return cipher_text
+
+
+def des_cbc_decrypt(key,iv,data):
+    mode = DES.MODE_CBC
+    cryptos = DES.new(key, mode, iv)
+    plain_text = cryptos.decrypt(data)
+    return unpad(plain_text)
+
+def des_ecb_encrypt(key,data):
+    mode = DES.MODE_ECB
+    cryptos = DES.new(key, mode)
+    cipher_text = cryptos.encrypt(pad(data))
+    return cipher_text
+
+# 解密后，去掉补足的空格用strip() 去掉
+def des_ecb_decrypt(key,data):
+    mode = DES.MODE_ECB
+    cryptos = DES.new(key, mode)
+    plain_text = cryptos.decrypt(data)
+    return bytes.decode(plain_text).rstrip('\0')
 
 def rc2_cbc_encrypt(key,iv,data):
     cryptos = ARC2.new(key, ARC2.MODE_CBC,iv)
@@ -126,3 +155,4 @@ def rsa_pub_signature(pubkey,data,signature):
     digest = SHA.new()
     digest.update(data.encode("utf8"))
     return verifier.verify(digest, base64.b64decode(signature))
+
