@@ -290,7 +290,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
                 res=Util.execProcess("../exec/win/protoc.exe","--decode_raw",data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
             else:
-                res = Util.execProcess("..\exec\linux\protoc", "--decode_raw", data)
+                res = Util.execProcess("../exec/linux/protoc", "--decode_raw", data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
         except Exception as ex:
             self.appendLog(str(ex))

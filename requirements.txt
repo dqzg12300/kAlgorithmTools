@@ -1,6 +1,7 @@
-PyQt5==5.10.1
+PyQt5
 capstone==4.0.1
-keystone==0.9.1
+keystone
 rsa==4.7
 pycryptodome==3.8.0;platform_system=="Windows"
 pycrypto==2.6.1;platform_system=="darwin"
+pycrypto==2.6.1;platform_system=="linux"
