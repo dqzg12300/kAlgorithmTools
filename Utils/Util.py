@@ -1,6 +1,6 @@
 import base64
 import re,struct,os,zlib
-import subprocess
+import subprocess,hashlib
 
 def StrToHexSplit(input):
     buf = bytes(0)
@@ -154,6 +154,25 @@ def curtomBase64(bkey,input_bytes):
         output += '='
     return output
 
+def getMd5(buff):
+    m = hashlib.md5()
+    m.update(buff)
+    res = m.hexdigest()
+    return res
+
+def getSha(cmbidx,buff):
+    if cmbidx == 1:
+        m = hashlib.sha1()
+    elif cmbidx == 2:
+        m = hashlib.sha224()
+    elif cmbidx == 3:
+        m = hashlib.sha512()
+    else:
+        m = hashlib.sha256()
+    m.update(buff)
+    res = m.hexdigest()
+    return res
+
 #获取脚本的路径
 def getScriptPath(scriptname,platform):
     rootpath=getProjectPath()
@@ -306,6 +325,8 @@ def varint_decode(buff):
         if not (i & 0x80):
             break
     return result
+
+
 
 def execProcess(processName,processArg,data):
     process = subprocess.Popen([processName, processArg],stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

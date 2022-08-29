@@ -17,14 +17,18 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.setupUi(self)
         self.setWindowOpacity(0.93)
         self.platform=platform.system()
+        self.txtprotoc_input.textChanged.connect(self.protoc_input_change);
         if self.iswin()==False:
             os.system("chmod +x ../script/linux/*")
             os.system("chmod +x ../script/mac/*")
             os.system("chmod +x ../exec/linux/protoc")
+            os.system("chmod +x ../exec/mac/protoc")
 
 
     def iswin(self):
         return self.platform=="Windows"
+    def ismac(self):
+        return self.platform=="Darwin"
 
     #base64的计算按钮事件
     def base64_calc_encode(self):
@@ -192,6 +196,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
     def hexdump_calc(self):
         inputdata=self.txthexdump_input.toPlainText()
         try:
+            #如果是内容包含两个空格
             if "  " in inputdata:
                 res=Util.HexdumpReplaceLeftRight(inputdata)
                 self.txthexdump_output.setPlainText(res)
@@ -273,7 +278,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             self.txtoct_output.setPlainText(res)
         except Exception as ex:
             self.appendLog(str(ex))
-            self.txtoct_output.setText('')
+            self.txtoct_output.setPlainText('')
 
     def protoc_calc(self):
         inputdata=self.txtprotoc_input.toPlainText()
@@ -288,6 +293,9 @@ class kmainForm(QMainWindow,Ui_MainWindow):
                 data = Util.StrToHexSplit(inputdata)
             if self.iswin():
                 res=Util.execProcess("../exec/win/protoc.exe","--decode_raw",data)
+                self.txtprotoc_output.setPlainText(res.decode("utf-8"))
+            elif self.ismac():
+                res = Util.execProcess("../exec/mac/protoc", "--decode_raw", data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
             else:
                 res = Util.execProcess("../exec/linux/protoc", "--decode_raw", data)
@@ -353,9 +361,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             self.appendLog("md5 input未输入正确数据")
             return
         try:
-            m= hashlib.md5()
-            m.update(buff)
-            res = m.hexdigest()
+            res = Util.getMd5(buff)
             self.txtmd5_output.setPlainText(res)
         except Exception as ex:
             self.appendLog(str(ex))
