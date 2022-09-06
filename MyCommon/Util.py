@@ -1,6 +1,7 @@
 import base64
 import re,struct,os,zlib
 import subprocess,hashlib
+from hexdump import restore
 
 def StrToHexSplit(input):
     buf = bytes(0)
@@ -12,6 +13,13 @@ def StrToHexSplit(input):
         bnum = struct.pack('B',num)
         buf += bnum
     return buf
+
+def fromHexDump(data):
+    spdata=data.split("\n")
+    resdata=""
+    for line in spdata:
+        resdata+=line[0:8]+":"+line[9:]+"\n"
+    return restore(resdata)
 
 def kbase64(input_data,isencode):
     if isencode:

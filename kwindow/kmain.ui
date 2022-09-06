@@ -305,6 +305,28 @@
                  </property>
                 </widget>
                </item>
+               <item row="0" column="2">
+                <widget class="QPushButton" name="btnhexdump_calc_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>匹配hexdump中间的字节部分出来</string>
+                 </property>
+                 <property name="text">
+                  <string>计算2</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -2984,7 +3006,7 @@
      <x>0</x>
      <y>0</y>
      <width>1019</width>
-     <height>26</height>
+     <height>37</height>
     </rect>
    </property>
    <widget class="QMenu" name="menufile">
@@ -3157,8 +3179,8 @@
    <slot>select_file()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>190</x>
-     <y>680</y>
+     <x>205</x>
+     <y>667</y>
     </hint>
     <hint type="destinationlabel">
      <x>959</x>
@@ -3173,8 +3195,8 @@
    <slot>save_file()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>338</x>
-     <y>680</y>
+     <x>342</x>
+     <y>667</y>
     </hint>
     <hint type="destinationlabel">
      <x>884</x>
@@ -3189,8 +3211,8 @@
    <slot>hex_toggled()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>658</x>
-     <y>631</y>
+     <x>641</x>
+     <y>618</y>
     </hint>
     <hint type="destinationlabel">
      <x>246</x>
@@ -3205,8 +3227,8 @@
    <slot>hexdump_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>658</x>
-     <y>678</y>
+     <x>516</x>
+     <y>667</y>
     </hint>
     <hint type="destinationlabel">
      <x>1018</x>
@@ -3221,8 +3243,8 @@
    <slot>hexdump_cmb_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>317</x>
-     <y>668</y>
+     <x>388</x>
+     <y>658</y>
     </hint>
     <hint type="destinationlabel">
      <x>1018</x>
@@ -3237,8 +3259,8 @@
    <slot>zlib_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>453</x>
-     <y>678</y>
+     <x>451</x>
+     <y>667</y>
     </hint>
     <hint type="destinationlabel">
      <x>555</x>
@@ -3253,8 +3275,8 @@
    <slot>oct_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>413</x>
-     <y>678</y>
+     <x>411</x>
+     <y>667</y>
     </hint>
     <hint type="destinationlabel">
      <x>192</x>
@@ -3269,8 +3291,8 @@
    <slot>protoc_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>413</x>
-     <y>678</y>
+     <x>411</x>
+     <y>667</y>
     </hint>
     <hint type="destinationlabel">
      <x>1018</x>
@@ -3285,8 +3307,8 @@
    <slot>asm_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>530</x>
-     <y>678</y>
+     <x>510</x>
+     <y>665</y>
     </hint>
     <hint type="destinationlabel">
      <x>1018</x>
@@ -3301,8 +3323,8 @@
    <slot>crc32_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>508</x>
-     <y>678</y>
+     <x>537</x>
+     <y>667</y>
     </hint>
     <hint type="destinationlabel">
      <x>1018</x>
@@ -3317,8 +3339,8 @@
    <slot>adler32_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>508</x>
-     <y>678</y>
+     <x>110</x>
+     <y>189</y>
     </hint>
     <hint type="destinationlabel">
      <x>1018</x>
@@ -3333,8 +3355,8 @@
    <slot>md5_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>508</x>
-     <y>678</y>
+     <x>110</x>
+     <y>189</y>
     </hint>
     <hint type="destinationlabel">
      <x>1018</x>
@@ -3349,8 +3371,8 @@
    <slot>sha_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>619</x>
-     <y>678</y>
+     <x>110</x>
+     <y>189</y>
     </hint>
     <hint type="destinationlabel">
      <x>548</x>
@@ -3365,8 +3387,8 @@
    <slot>aes_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>291</x>
-     <y>673</y>
+     <x>89</x>
+     <y>339</y>
     </hint>
     <hint type="destinationlabel">
      <x>573</x>
@@ -3381,8 +3403,8 @@
    <slot>hmac_calc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>598</x>
-     <y>650</y>
+     <x>111</x>
+     <y>181</y>
     </hint>
     <hint type="destinationlabel">
      <x>357</x>
@@ -3397,8 +3419,8 @@
    <slot>aes_mode_change()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>459</x>
-     <y>618</y>
+     <x>91</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>254</x>
@@ -3413,8 +3435,8 @@
    <slot>rsa_gen()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>227</x>
-     <y>678</y>
+     <x>78</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>239</x>
@@ -3429,8 +3451,8 @@
    <slot>rsa_encrypt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>413</x>
-     <y>678</y>
+     <x>94</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>277</x>
@@ -3445,8 +3467,8 @@
    <slot>rsa_decrypt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>599</x>
-     <y>678</y>
+     <x>110</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>446</x>
@@ -3477,8 +3499,8 @@
    <slot>aes_calc_decrypt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>404</x>
-     <y>646</y>
+     <x>96</x>
+     <y>339</y>
     </hint>
     <hint type="destinationlabel">
      <x>465</x>
@@ -3509,8 +3531,8 @@
    <slot>url_calc_decode()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>505</x>
-     <y>664</y>
+     <x>110</x>
+     <y>181</y>
     </hint>
     <hint type="destinationlabel">
      <x>1019</x>
@@ -3573,8 +3595,8 @@
    <slot>varint_calc_decode()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>497</x>
-     <y>649</y>
+     <x>110</x>
+     <y>189</y>
     </hint>
     <hint type="destinationlabel">
      <x>702</x>
@@ -3589,8 +3611,8 @@
    <slot>varint_calc_encode()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>258</x>
-     <y>658</y>
+     <x>86</x>
+     <y>189</y>
     </hint>
     <hint type="destinationlabel">
      <x>704</x>
@@ -3605,8 +3627,8 @@
    <slot>url_calc_encode()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>256</x>
-     <y>664</y>
+     <x>86</x>
+     <y>181</y>
     </hint>
     <hint type="destinationlabel">
      <x>444</x>
@@ -3637,8 +3659,8 @@
    <slot>des_calc_encrypt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>231</x>
-     <y>658</y>
+     <x>89</x>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -3653,8 +3675,8 @@
    <slot>des_calc_decrypt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>390</x>
-     <y>658</y>
+     <x>96</x>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>8</x>
@@ -3669,8 +3691,8 @@
    <slot>rc2_calc_encrypt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>202</x>
-     <y>654</y>
+     <x>89</x>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>379</x>
@@ -3685,12 +3707,28 @@
    <slot>rc2_calc_decrypt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>401</x>
-     <y>649</y>
+     <x>96</x>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>325</x>
      <y>-16</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnhexdump_calc_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hexdump_calc2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>579</x>
+     <y>641</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>
+     <y>592</y>
     </hint>
    </hints>
   </connection>
@@ -3758,5 +3796,6 @@
   <slot>zlib_calc_unzlib()</slot>
   <slot>des_calc_encrypt()</slot>
   <slot>des_calc_decrypt()</slot>
+  <slot>hexdump_calc2()</slot>
  </slots>
 </ui>
