@@ -305,7 +305,7 @@ class kmainForm(QMainWindow,Ui_MainWindow):
             else:
                 data = Util.StrToHexSplit(inputdata)
             if self.iswin():
-                res=Util.execProcess("../exec/win/protoc.exe","--decode_raw",data)
+                res=Util.execProcess("./exec/win/protoc.exe","--decode_raw",data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
             elif self.ismac():
                 res = Util.execProcess("../exec/mac/protoc", "--decode_raw", data)
