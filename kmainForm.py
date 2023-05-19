@@ -1,4 +1,5 @@
 import datetime
+import shutil
 import sys
 
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog
@@ -17,7 +18,8 @@ class kmainForm(QMainWindow,Ui_MainWindow):
         self.setupUi(self)
         self.setWindowOpacity(0.93)
         self.platform=platform.system()
-        self.txtprotoc_input.textChanged.connect(self.protoc_input_change);
+        self.txtprotoc_input.textChanged.connect(self.protoc_input_change)
+        self.btnprotoc_calc_2.clicked.connect(self.protoc_calc2)
         if self.iswin()==False:
             os.system("chmod +x ../script/linux/*")
             os.system("chmod +x ../script/mac/*")
@@ -282,16 +284,92 @@ class kmainForm(QMainWindow,Ui_MainWindow):
     #八进制转中文字符(Octal)  ####\345\276\256\344\277\241
     def oct_calc(self):
         inputdata=self.txtoct_input.toPlainText()
+        lines=inputdata.split("\n")
+        res=""
+        for line in lines:
+            try:
+                nstr = eval("'{}'".format(line))
+                mybuff = bytes(0)
+                for mychar in nstr:
+                    mybuff += bytes([ord(mychar)])
+                res += mybuff.decode(encoding="utf-8")+"\n"
+            except Exception as ex:
+                self.appendLog(str(ex))
+                res += line+"\n"
+                # self.txtoct_output.setPlainText('')
+        self.txtoct_output.setPlainText(res)
+
+
+    def protoc_calc2(self):
+        inputdata=self.txtprotoc_input.toPlainText()
         try:
-            nstr = eval("'{}'".format(inputdata))
-            mybuff = bytes(0)
-            for mychar in nstr:
-                mybuff += bytes([ord(mychar)])
-            res = mybuff.decode(encoding="utf-8")
-            self.txtoct_output.setPlainText(res)
+            if "  " in inputdata:
+                data=Util.HexdumpReplaceLeftRight(inputdata)
+                data = Util.StrToHexSplit(data)
+            elif " " not in inputdata:
+                data = Util.ByteToHexStr(inputdata)
+                data=Util.StrToHexSplit(data)
+            else:
+                data = Util.StrToHexSplit(inputdata)
         except Exception as ex:
             self.appendLog(str(ex))
-            self.txtoct_output.setPlainText('')
+            self.txtprotoc_output.setPlainText("")
+
+        idx=0
+        while True:
+            dataStr=Util.b2hex(data[idx:])
+            httpIdx=dataStr.find("68747470")
+            if httpIdx<0:
+                break
+            httpIdx=int(httpIdx/2)
+            if(data[httpIdx - 1]>0x7f):
+                data=data[httpIdx+4:]
+                continue
+            tmpIdx=data[httpIdx-2]
+            if tmpIdx<=0x7f:
+                sizeIdx=httpIdx-1
+            else:
+                sizeIdx=httpIdx-2
+            # print(Util.b2hex(data))
+
+            size=Util.varint_decode(data[sizeIdx:])
+            urlData= data[httpIdx:httpIdx+size]
+            tmpDataStr = Util.b2hexSpace(urlData)
+            tmpDataStr=tmpDataStr.replace(" 00 "," 3f ")
+            urlData=Util.StrToHexSplit(tmpDataStr)
+            print(urlData.decode())
+            data=data[httpIdx+size:]
+        self.appendLog("protoc解析完成")
+
+        # idx=0
+        # while True:
+        #     
+        #     (vdata, vsize) = Util.varint_decode(data[idx:])
+        #     idx += vsize
+        # 
+        #     (vdata2,vsize)=Util.varint_decode(data[idx:])
+        #     idx+=vsize
+        #     if (Util.b2hex(Util.varint_encode(vdata)).startswith("2")):
+        #         print(idx)
+        #         print(Util.b2hex(data[0:idx])+"\n")
+        #         continue
+        #     if idx+vdata2>len(data):
+        #         break
+        #     idx+=vdata2
+        #     print(idx)
+        #     print(Util.b2hex(data[0:idx])+"\n")
+        # tmpdata=data[0:idx]
+        # if self.iswin():
+        #     res = Util.execProcess("./exec/win/protoc.exe", "--decode_raw", tmpdata)
+        #     self.txtprotoc_output.setPlainText(res.decode("utf-8"))
+        # elif self.ismac():
+        #     res = Util.execProcess(shutil.which("protoc"), "--decode_raw", tmpdata)
+        #     self.txtprotoc_output.setPlainText(res.decode("utf-8"))
+        # else:
+        #     res = Util.execProcess(shutil.which("protoc"), "--decode_raw", tmpdata)
+        #     self.txtprotoc_output.setPlainText(res.decode("utf-8"))
+        # 
+        # self.appendLog("protoc解析完成")
 
     def protoc_calc(self):
         inputdata=self.txtprotoc_input.toPlainText()
@@ -308,10 +386,10 @@ class kmainForm(QMainWindow,Ui_MainWindow):
                 res=Util.execProcess("./exec/win/protoc.exe","--decode_raw",data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
             elif self.ismac():
-                res = Util.execProcess("../exec/mac/protoc", "--decode_raw", data)
+                res = Util.execProcess(shutil.which("protoc"), "--decode_raw", data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
             else:
-                res = Util.execProcess("../exec/linux/protoc", "--decode_raw", data)
+                res = Util.execProcess(shutil.which("protoc"), "--decode_raw", data)
                 self.txtprotoc_output.setPlainText(res.decode("utf-8"))
         except Exception as ex:
             self.appendLog(str(ex))
