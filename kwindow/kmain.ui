@@ -783,6 +783,28 @@
                  </property>
                 </widget>
                </item>
+               <item row="0" column="1">
+                <widget class="QPushButton" name="btnprotoc_calc_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string>递减计算</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
